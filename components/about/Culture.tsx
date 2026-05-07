@@ -42,7 +42,6 @@ const valuesData = [
 export const CorporateCulture = () => {
   return (
     <section className="overflow-hidden">
-      <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-16 items-center">
           
           <div className="w-full lg:w-1/2 space-y-12">
@@ -75,7 +74,6 @@ export const CorporateCulture = () => {
           </div>
 
         </div>
-      </div>
     </section>
   );
 };

@@ -44,7 +44,7 @@ export const OurPrograms = () => {
               ))}
             </div>
 
-            <div className="flex items-center gap-8 pt-4 border-t border-border/40">
+            <div className="flex items-center gap-8">
               <MyButton size="lg" asChild>
                 <Link href="/programs">
                   Explore Programs

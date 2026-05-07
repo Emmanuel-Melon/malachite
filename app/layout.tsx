@@ -58,11 +58,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${playfair.variable} ${dmSans.variable} ${dmSerif.variable} font-sans antialiased`}
+        className={`${playfair.variable} ${dmSans.variable} ${dmSerif.variable} font-sans antialiased bg-background`}
       >
         <Navbar />
         <main className="pt-32 md:pt-40 py-12">
-          {children}
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+            {children}
+          </div>
         </main>
         <Footer />
         {process.env.NODE_ENV === 'production' && <Analytics />}

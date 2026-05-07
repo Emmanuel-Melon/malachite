@@ -14,44 +14,51 @@ export const TabNavigation = <T extends string>({
   tabs 
 }: TabNavigationProps<T>) => {
   return (
-    <div className="w-full space-y-12 py-16">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-border/40 pb-12">
-        <div className="space-y-4">
-          <h2 className="text-5xl md:text-7xl tracking-tighter leading-[0.8] font-medium">
-            Our <br />
-            <span className="text-muted-foreground/40 italic">Programs.</span>
+    <div className="w-full">
+      <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-8 lg:gap-16 border-b border-border/40 pb-10">
+        
+        <div className="relative -mx-4 px-4 lg:mx-0 lg:px-0 lg:max-w-3xl">
+          <div className="flex overflow-x-auto lg:flex-wrap lg:justify-start gap-3 md:gap-4 pt-2 pb-2 no-scrollbar items-center">
+            {tabs.map((key, index) => {
+              const isActive = activeTab === key;
+              const displayNum = index + 1 < 10 ? `0${index + 1}` : index + 1;
+              
+              return (
+                <MyButton
+                  key={key}
+                  onClick={() => onTabChange(key)}
+                  variant="ghost"
+                  className={cn(
+                    "flex items-center gap-3 transition-all duration-500 shrink-0 border group",
+                    isActive 
+                      ? "bg-foreground text-background border-foreground shadow-xl shadow-foreground/10 -translate-y-1" 
+                      : "bg-transparent border-border/60 text-foreground hover:bg-foreground hover:text-background hover:border-foreground hover:-translate-y-1"
+                  )}
+                >
+                  <span className={cn(
+                    "text-[10px] font-mono transition-colors duration-500",
+                    isActive 
+                      ? "text-background/50" 
+                      : "text-muted-foreground/40 group-hover:text-background/50"
+                  )}>
+                    {displayNum}
+                  </span>
+                  <span className="text-xs font-bold tracking-widest uppercase">
+                    {key.replace('_', ' ')}
+                  </span>
+                </MyButton>
+              );
+            })}
+          </div>
+          <div className="absolute right-0 top-2 bottom-4 w-12 bg-gradient-to-l from-background to-transparent pointer-events-none lg:hidden" />
+        </div>
+
+        <div className="lg:text-right">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl tracking-tighter leading-none font-medium">
+            Explore Our Programs
           </h2>
         </div>
-      </div>
 
-      <div className="flex flex-wrap gap-4 md:gap-6">
-        {tabs.map((key, index) => {
-          const isActive = activeTab === key;
-          const displayNum = index + 1 < 10 ? `0${index + 1}` : index + 1;
-          
-          return (
-            <MyButton
-              key={key}
-              onClick={() => onTabChange(key)}
-              className={cn(
-                "h-auto py-4 px-6 flex items-center gap-4 transition-all duration-300",
-                isActive 
-                  ? "ring-2 ring-primary ring-offset-2 scale-105" 
-                  : "opacity-70 hover:opacity-100"
-              )}
-            >
-              <span className={cn(
-                "text-[10px] font-mono transition-colors duration-300",
-                isActive ? "text-primary" : "text-muted-foreground/40"
-              )}>
-                {displayNum}
-              </span>
-              <span className="text-sm font-bold tracking-widest uppercase">
-                {key.replace('_', ' ')}
-              </span>
-            </MyButton>
-          );
-        })}
       </div>
     </div>
   );

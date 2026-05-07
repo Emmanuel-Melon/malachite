@@ -1,41 +1,63 @@
-import React from 'react';
 import { ArrowRight } from "lucide-react";
 import { MyButton } from "@/components/atoms/button";
 
 export const ContactForm = () => {
   return (
-    <div className="p-8 md:p-12 rounded-[3rem] bg-[#fcfcfd] border border-border/40 shadow-[rgba(45,35,66,0.3)_0_2px_4px,rgba(45,35,66,0.2)_0_7px_13px_-3px,#d6d6e7_0_-3px_0_inset]">
-      <form className="space-y-8">
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-2">
-            <label className="text-[10px] tracking-[.3em] uppercase text-muted-foreground ml-2">full name</label>
-            <input type="text" className="w-full h-14 px-6 rounded-2xl bg-secondary/50 border border-transparent focus:border-primary/20 outline-none transition-all" placeholder="john doe" />
+    <div className="w-full max-w-2xl">
+      <form className="space-y-10">
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
+          <div className="space-y-3">
+            <label className="text-[10px] tracking-[.4em] uppercase text-muted-foreground font-bold">
+              full name
+            </label>
+            <input 
+              type="text" 
+              className="w-full bg-transparent border-b border-border/60 py-3 focus:border-primary outline-none transition-all placeholder:text-muted-foreground/30 text-lg lowercase" 
+              placeholder="john doe" 
+            />
           </div>
-          <div className="space-y-2">
-            <label className="text-[10px] tracking-[.3em] uppercase text-muted-foreground ml-2">email address</label>
-            <input type="email" className="w-full h-14 px-6 rounded-2xl bg-secondary/50 border border-transparent focus:border-primary/20 outline-none transition-all" placeholder="john@example.com" />
+          
+          <div className="space-y-3">
+            <label className="text-[10px] tracking-[.4em] uppercase text-muted-foreground font-bold">
+              email address
+            </label>
+            <input 
+              type="email" 
+              className="w-full bg-transparent border-b border-border/60 py-3 focus:border-primary outline-none transition-all placeholder:text-muted-foreground/30 text-lg lowercase" 
+              placeholder="john@example.com" 
+            />
           </div>
         </div>
         
-        <div className="space-y-2">
-          <label className="text-[10px] tracking-[.3em] uppercase text-muted-foreground ml-2">subject</label>
-          <select className="w-full h-14 px-6 rounded-2xl bg-secondary/50 border border-transparent focus:border-primary/20 outline-none transition-all appearance-none cursor-pointer">
+        <div className="space-y-3">
+          <label className="text-[10px] tracking-[.4em] uppercase text-muted-foreground font-bold">
+            subject
+          </label>
+          <select className="w-full bg-transparent border-b border-border/60 py-3 focus:border-primary outline-none transition-all appearance-none cursor-pointer text-lg lowercase italic text-muted-foreground/60">
             <option>general inquiry</option>
-            <option>workplace programs</option>
-            <option>clinical services</option>
-            <option>research partnership</option>
+            <option>workplace wellness</option>
+            <option>school outreach</option>
+            <option>clinical innovation</option>
           </select>
         </div>
 
-        <div className="space-y-2">
-          <label className="text-[10px] tracking-[.3em] uppercase text-muted-foreground ml-2">your message</label>
-          <textarea rows={5} className="w-full p-6 rounded-2xl bg-secondary/50 border border-transparent focus:border-primary/20 outline-none transition-all resize-none" placeholder="how can we support you?"></textarea>
+        <div className="space-y-3">
+          <label className="text-[10px] tracking-[.4em] uppercase text-muted-foreground font-bold">
+            your message
+          </label>
+          <textarea 
+            rows={4} 
+            className="w-full bg-transparent border-b border-border/60 py-3 focus:border-primary outline-none transition-all resize-none placeholder:text-muted-foreground/30 text-lg lowercase" 
+            placeholder="how can we support you?"
+          ></textarea>
         </div>
 
-        <MyButton className="w-full py-8 text-lg rounded-2xl shadow-[rgba(45,35,66,0.3)_0_2px_4px,rgba(45,35,66,0.2)_0_7px_13px_-3px,#000000_0_-2px_0_inset]">
-          send message
-          <ArrowRight className="ml-2 w-5 h-5" />
-        </MyButton>
+        <div className="pt-6">
+          <MyButton size="lg" className="group">
+            send message
+            <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </MyButton>
+        </div>
       </form>
     </div>
   );

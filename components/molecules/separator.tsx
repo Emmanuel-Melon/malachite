@@ -1,4 +1,3 @@
-import React from 'react';
 import { cn } from "@/lib/utils";
 
 interface SeparatorProps {
@@ -13,7 +12,10 @@ export const Separator = ({
   showDots = true 
 }: SeparatorProps) => {
   return (
-    <div className={cn("relative w-full py-24 flex items-center justify-center", className)}>
+    <div className={cn(
+      "relative w-full py-16 md:py-24 hidden md:flex items-center justify-center", 
+      className
+    )}>
       <div className="absolute inset-0 flex items-center" aria-hidden="true">
         <div className="w-full border-t border-border/40" />
       </div>

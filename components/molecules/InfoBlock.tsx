@@ -18,7 +18,7 @@ export const InfoBlock = ({
 }: InfoBlockProps) => (
   <div className={cn("space-y-3 transition-all duration-300", className)}>
     <div className="flex items-center gap-4">
-      <Indicator variant="secondary"/>
+      <Indicator variant="secondary" activeDot="right"/>
       <h3 className={cn("text-xl md:text-2xl tracking-tight font-medium", titleClassName)}>
         {title}
       </h3>

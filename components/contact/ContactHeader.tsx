@@ -1,5 +1,5 @@
-import React from 'react';
 import { SectionHeader } from "@/components/molecules/SectionHeader";
+import { Statement } from "../molecules/Statement";
 
 export const ContactHeader = () => {
   return (
@@ -11,9 +11,7 @@ export const ContactHeader = () => {
             title="start your journey to"
             gradientText="restoration."
           />
-          <p className="mt-8 text-xl md:text-2xl text-muted-foreground leading-relaxed border-l-4 border-primary pl-6 max-w-2xl">
-            our specialist team is ready to provide the support and guidance you need. reach out today for a confidential consultation.
-          </p>
+          <Statement text="our specialist team is ready to provide the support and guidance you need. reach out today for a confidential consultation." />
         </div>
       </div>
     </section>

@@ -35,48 +35,42 @@ const contactData: ContactItem[] = [
   }
 ];
 
-
 const socials = [
+  { href: "Facebook", icon: Facebook },
+  { href: "Twitter", icon: Twitter },
+  { href: "Instagram", icon: Instagram },
+  { href: "LinkedIn", icon: Linkedin }
+];
+
+const footerNavigation = [
   {
-    href: "Facebook",
-    icon: Facebook
+    title: "company",
+    links: [
+      { label: "about us", href: "/about" },
+      { label: "contact", href: "/contact" },
+    ],
   },
-  {
-    href: "Twitter",
-    icon: Twitter
-  },
-  {
-    href: "Instagram",
-    icon: Instagram
-  },
-  {
-    href: "LinkedIn",
-    icon: Linkedin
-  }
 ];
 
 export const ContactInfo = () => {
   return (
     <div className="space-y-8">
       {contactData.map((item, index) => (
-        <div key={index} className="relative flex flex-col md:flex-row md:items-center gap-6 group">
+        <div key={index} className="relative flex flex-row items-center gap-6 group">
           <IconContainer
             icon={item.icon}
-            variant="default"
-            className="w-14 h-14 shrink-0"
-            iconClassName="w-5 h-5 text-muted-foreground group-hover:text-primary"
+            variant="ghost"
+            className="w-12 h-12 shrink-0 rounded-xl"
+            iconClassName="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors"
           />
-
-          <div className="space-y-1">
-
-            <div className="inline-flex items-center gap-3">
+          <div className="space-y-0.5">
+            <div className="inline-flex items-center gap-2">
               <Indicator activeDot="right" variant="secondary" />
-
-              <span className="text-[12px] tracking-[.4em]">
+              <span className="text-[10px] tracking-[.4em] uppercase font-bold text-muted-foreground/60">
                 {item.label}
               </span>
             </div>
-            <h2 className="text-xl tracking-tighter leading-tight text-muted-foreground transition-colors group-hover:text-foreground">
+            <h2 className="text-lg tracking-tighter leading-tight text-muted-foreground transition-colors group-hover:text-foreground">
               {item.value}
             </h2>
           </div>
@@ -86,49 +80,18 @@ export const ContactInfo = () => {
   );
 };
 
-const footerNavigation = [
-  {
-    title: "services",
-    links: [
-      { label: "therapeutic care", href: "#" },
-      { label: "workplace training", href: "#" },
-      { label: "community outreach", href: "#" },
-      { label: "clinical research", href: "#" },
-    ],
-  },
-  {
-    title: "company",
-    links: [
-      { label: "about us", href: "#" },
-      { label: "our team", href: "#" },
-      { label: "success stories", href: "#" },
-      { label: "contact", href: "#" },
-    ],
-  },
-  {
-    title: "legal",
-    links: [
-      { label: "privacy policy", href: "#" },
-      { label: "terms of service", href: "#" },
-      { label: "ethics & compliance", href: "#" },
-    ],
-  },
-];
-
 export const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-background border-t border-border/40 relative overflow-hidden font-sans">
       <div className="container mx-auto px-4 pt-24 pb-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
-
-          <div className="lg:col-span-5 space-y-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-20">
+          
+          <div className="lg:col-span-6 space-y-10">
             <div className="space-y-6">
               <Link href="/" className="inline-block group">
-                <h2 className="text-4xl tracking-tighter leading-[0.9]">
+                <h2 className="text-4xl tracking-tighter leading-[0.9] lowercase">
                   malachite <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-600">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-600 italic">
                     medical centre
                   </span>
                 </h2>
@@ -144,22 +107,22 @@ export const Footer = () => {
             </div>
 
             <div className="flex flex-wrap gap-4">
-              {
-                socials.map((social) => <SocialLink key={social.href} href={social.href} icon={social.icon} />)
-              }
-            </div>
-            <div className="pt-12 border-t border-border/40 space-y-10">
-              <ContactInfo />
+              {socials.map((social) => (
+                <SocialLink key={social.href} href={social.href} icon={social.icon} />
+              ))}
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-12 lg:pl-12">
+          <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="pt-2">
+              <ContactInfo />
+            </div>
+
             {footerNavigation.map((group) => (
               <div key={group.title} className="space-y-8">
                 <div className="inline-flex items-center gap-3">
                   <Indicator variant="secondary" activeDot="right" />
-
-                  <h3 className="tracking-[.4em]">
+                  <h3 className="tracking-[.4em] uppercase text-xs font-bold">
                     {group.title}
                   </h3>
                 </div>
@@ -168,9 +131,9 @@ export const Footer = () => {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="group flex items-center gap-0 hover:gap-2 text-muted-foreground hover:text-primary transition-all duration-300"
+                        className="group flex items-center gap-0 hover:gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 lowercase text-lg italic"
                       >
-                        <ArrowRight className="w-0 group-hover:w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+                        <ArrowRight className="w-0 group-hover:w-5 h-5 opacity-0 group-hover:opacity-100 transition-all text-primary" />
                         {link.label}
                       </Link>
                     </li>
@@ -179,16 +142,15 @@ export const Footer = () => {
               </div>
             ))}
 
-            <div className="col-span-2 md:col-span-3 pt-12">
+            <div className="md:col-span-2 pt-8">
               <MyCard
-                variant="dark"
-                className="p-8 flex flex-col md:flex-row items-center justify-between gap-8"
+                className="p-8 flex flex-col md:flex-row items-center justify-between gap-8 bg-foreground text-background border-none rounded-[2rem]"
               >
                 <div className="space-y-1 text-center md:text-left">
-                  <p className="text-xl tracking-tight text-primary">ready to start your journey?</p>
-                  <p className="text-sm text-primary/80">get in touch with our specialist team today.</p>
+                  <p className="text-2xl tracking-tighter">ready to start your journey?</p>
+                  <p className="text-sm opacity-60">get in touch with our specialist team today.</p>
                 </div>
-                <MyButton size="lg">
+                <MyButton size="lg" className="rounded-full bg-background text-foreground hover:bg-background/90 px-8">
                   contact us
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </MyButton>

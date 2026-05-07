@@ -1,5 +1,5 @@
 "use client";
-import { ArrowRight, Gift, Users, Heart, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Users, Twitter, Instagram, Linkedin } from "lucide-react";
 import { MyButton } from "@/components/atoms/button";
 import Image from "next/image";
 import { ImageContainer } from "@/components/molecules/ImageContainer";
@@ -8,21 +8,11 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { MyCard } from "./atoms/card";
 import { IconContainer } from "./atoms/IconContainer";
-import { Indicator } from "./atoms/Indicator";
 
 const socials = [
-  {
-    href: "Twitter",
-    icon: Twitter
-  },
-  {
-    href: "Instagram",
-    icon: Instagram
-  },
-  {
-    href: "LinkedIn",
-    icon: Linkedin
-  }
+  { href: "Twitter", icon: Twitter },
+  { href: "Instagram", icon: Instagram },
+  { href: "LinkedIn", icon: Linkedin }
 ];
 
 export const Hero = () => {
@@ -57,7 +47,7 @@ export const Hero = () => {
                   <h3
                     key={i}
                     className={cn(
-                      "absolute top-0 left-0 whitespace-nowrap tracking-[.4em] text-xl font-bold transition-all duration-700 ease-in-out",
+                      "absolute top-0 left-0 whitespace-nowrap tracking-[.4em] text-sm md:text-xl font-bold transition-all duration-700 ease-in-out",
                       activeSubtitle === i
                         ? "translate-y-0 opacity-100"
                         : "translate-y-full opacity-0"
@@ -68,61 +58,57 @@ export const Hero = () => {
                 ))}
               </div>
 
-              <h1 className="text-6xl md:text-8xl lg:text-[110px] tracking-tighter leading-[0.8] text-foreground">
+              <h1 className="text-5xl md:text-8xl lg:text-[110px] tracking-tighter leading-[0.8] text-foreground">
                 hope, healing, <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-500 to-primary bg-[length:200%_auto] animate-gradient-x">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-orange-500 to-primary bg-[length:200%_auto] animate-gradient-x italic">
                   and restoration.
                 </span>
               </h1>
             </div>
 
             <div className="space-y-10">
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed lowercase">
                 redefine your path to sustained well-being with personalized recovery and integrated community support.
               </p>
 
               <div className="flex flex-wrap items-center gap-8">
                 <div className="flex flex-wrap gap-4">
-                  <MyButton size="lg" className="bg-primary">
-                    get started
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </MyButton>
-                  <MyButton variant="outline" size="lg">
+                  <MyButton variant="default" size="lg" className="px-8">
                     view programs
                   </MyButton>
                 </div>
 
-                <div className="flex items-center gap-4 border-l border-border/60 pl-8">
-                  {
-                    socials.map((social) => <SocialLink key={social.href} href={social.href} icon={social.icon} />)
-                  }
+                <div className="flex items-center gap-4 border-l border-border/60 pl-8 hidden md:flex">
+                  {socials.map((social) => (
+                    <SocialLink key={social.href} href={social.href} icon={social.icon} />
+                  ))}
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-4 lg:pt-12 relative group">
-            <div className="absolute inset-0 bg-secondary/40 rounded-[2.5rem] rotate-6 scale-95 translate-y-2 -z-20 transition-transform duration-500 group-hover:rotate-12" />
+          <div className="lg:col-span-4 lg:pt-12 relative">
+            <div className="absolute inset-0 bg-secondary/40 rounded-3xl rotate-6 scale-95 translate-y-2 -z-20" />
+            <div className="absolute inset-0 bg-secondary/90 rounded-3xl rotate-3 scale-[0.98] translate-y-1 -z-10" />
 
-            <div className="absolute inset-0 bg-secondary/90 rounded-xl rotate-3 scale-[0.98] translate-y-1 -z-10 transition-transform duration-500 group-hover:rotate-6" />
-
-            <MyCard variant="dark" className="p-8 relative z-10 border-white/10 shadow-2xl">
+            <MyCard className="relative z-10 border-none bg-foreground text-background p-8 md:p-10 shadow-2xl">
               <div className="space-y-8">
-                <p className="text-2xl font-bold leading-tight tracking-tight text-primary">
+                <p className="text-2xl md:text-3xl font-medium leading-tight tracking-tight italic">
                   "empowering individuals to reach their full potential through sustainable recovery and clinical innovation."
                 </p>
 
-                <div className="flex items-center gap-4 pt-4 border-t border-primary/10">
+                <div className="flex items-center gap-4 pt-6 border-t border-background/10">
                   <IconContainer
                     icon={Users}
-                    variant="outline"
-                    iconClassName="text-accent"
+                    variant="ghost"
+                    className="bg-background/10 rounded-xl"
+                    iconClassName="text-background"
                   />
                   <div>
-                    <p className="text-xs tracking-widest text-primary font-bold uppercase">
+                    <p className="text-[10px] tracking-[.3em] opacity-60 uppercase font-bold">
                       Founder
                     </p>
-                    <p className="tracking-[.2em] text-primary">
+                    <p className="tracking-tight text-lg">
                       Christina Angelo Ntulo
                     </p>
                   </div>
@@ -132,7 +118,7 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className="relative mt-24">
+        <div className="relative mt-24 hidden md:block">
           <HeroGrid />
         </div>
       </div>
@@ -142,11 +128,11 @@ export const Hero = () => {
 
 function HeroGrid() {
   return (
-    <div className="w-full grid grid-cols-12 gap-4 lg:gap-8 items-center">
-      <div className="col-span-12 md:col-span-4">
-        <div className="group relative aspect-[3/4] z-10 transition-all hover:scale-[1.02]">
-          <ImageContainer className="w-full h-full">
-            <Image src="/image.webp" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="clinical" fill />
+    <div className="w-full grid grid-cols-12 gap-8 items-center">
+      <div className="col-span-4">
+        <div className="group relative aspect-[3/4] z-10 transition-all duration-500 -rotate-3 hover:rotate-0 hover:scale-[1.02]">
+          <ImageContainer className="w-full h-full rounded-[3rem]">
+            <Image src="/image.webp" className="w-full h-full object-cover group-hover:grayscale-0 transition-all duration-700" alt="clinical" fill />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity" />
             <div className="absolute bottom-6 left-6">
               <p className="text-white text-[10px] tracking-widest uppercase">clinical</p>
@@ -155,11 +141,11 @@ function HeroGrid() {
         </div>
       </div>
 
-      <div className="col-span-12 md:col-span-4">
-        <div className="relative aspect-square z-20">
-          <ImageContainer className="w-full h-full">
+      <div className="col-span-4">
+        <div className="relative aspect-square z-20 transition-all duration-500 rotate-3 hover:rotate-0">
+          <ImageContainer className="w-full h-full rounded-[3rem] border-[12px] border-white shadow-2xl">
             <Image src="/image1.png" className="w-full h-full object-cover" alt="excellence" fill />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 transition-opacity" />
             <div className="absolute bottom-8 left-8">
               <p className="text-white text-[10px] tracking-widest uppercase">excellence</p>
             </div>
@@ -167,10 +153,10 @@ function HeroGrid() {
         </div>
       </div>
 
-      <div className="col-span-12 md:col-span-4">
-        <div className="group relative aspect-[3/4] z-10 transition-all hover:scale-[1.02]">
-          <ImageContainer className="w-full h-full">
-            <Image src="/image2.jpg" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="community" fill />
+      <div className="col-span-4">
+        <div className="group relative aspect-[3/4] z-10 transition-all duration-500 -rotate-3 hover:rotate-0 hover:scale-[1.02]">
+          <ImageContainer className="w-full h-full rounded-[3rem]">
+            <Image src="/image2.jpg" className="w-full h-full object-cover group-hover:grayscale-0 transition-all duration-700" alt="community" fill />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity" />
             <div className="absolute bottom-6 left-6">
               <p className="text-white text-[10px] tracking-widest uppercase">community</p>

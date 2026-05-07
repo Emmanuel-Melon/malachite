@@ -29,16 +29,6 @@ export const ProgramSection = ({ section }: ProgramSectionProps) => {
         />
 
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-3">
-            <div className="flex gap-1">
-              <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-              <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
-            </div>
-
-            <span className="text-[10px] font-bold tracking-[.4em] text-muted-foreground uppercase">
-              specialized track
-            </span>
-          </div>
           <h2 className="text-3xl tracking-tighter leading-tight">
             {section.title.toLowerCase()}
           </h2>

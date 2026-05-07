@@ -26,7 +26,8 @@ export const MyCard = ({
     <Component
       {...props}
       className={cn(
-        "rounded-xl border transition-all duration-150 overflow-hidden",
+        "p-8 border transition-all duration-150 overflow-hidden",
+        "rounded-[2.5rem]",
         "shadow-[0_0_0.25em_rgba(67,71,85,0.27),0_0.25em_1em_rgba(90,125,188,0.05)]",
         "hover:shadow-[0_0_0.4em_rgba(67,71,85,0.3),0_0.3em_1.2em_rgba(90,125,188,0.08)]",
         "hover:-translate-y-0.5 hover:border-border/60",

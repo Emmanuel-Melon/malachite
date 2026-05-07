@@ -21,7 +21,7 @@ export const OverlappingImages = ({
     <div className={cn("relative h-[500px] md:h-[800px] w-full", className)}>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/5 blur-[100px] rounded-full -z-10" />
 
-      <div className="absolute top-0 right-0 w-[80%] h-[70%] z-10 transition-transform duration-500 hover:scale-[1.02]">
+      <div className="absolute top-0 right-0 w-[80%] h-[70%] z-10 transition-all duration-500 -rotate-3 hover:rotate-0 hover:scale-[1.02]">
         <ImageContainer className="w-full h-full border-[12px] border-white shadow-2xl overflow-hidden">
           <Image
             src={backImage}
@@ -32,7 +32,7 @@ export const OverlappingImages = ({
         </ImageContainer>
       </div>
 
-      <div className="absolute bottom-4 left-0 w-[65%] h-[55%] z-20 transition-transform duration-500 hover:translate-y-[-10px]">
+      <div className="absolute bottom-4 left-0 w-[65%] h-[55%] z-20 transition-all duration-500 rotate-3 hover:rotate-0 hover:translate-y-[-10px]">
         <ImageContainer className="w-full h-full border-[12px] border-white shadow-2xl overflow-hidden">
           <Image
             src={frontImage}

@@ -10,18 +10,18 @@ interface ImageContainerProps {
 export const ImageContainer = ({
   children,
   className,
-  borderColor,
+  borderColor = "border-white",
 }: ImageContainerProps) => {
   return (
     <div
       className={cn(
         "relative rounded-[4.5rem] overflow-hidden bg-background",
-        "border-[12px] border-white shadow-2xl",
+        "border-[12px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)]",
         borderColor,
-        "shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)]",
         className
       )}
     >
+      {/* The inner wrapper ensures the content (like Images) doesn't bleed over the thick borders */}
       <div className="relative w-full h-full rounded-[3.2rem] overflow-hidden">
         {children}
       </div>

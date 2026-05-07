@@ -5,11 +5,12 @@ import { Separator } from "@/components/molecules/separator";
 
 export default function AboutPage() {
   return (
-    <section>
+    <div className="space-y-24 md:space-y-0">
       <AboutHeader />
+      <Separator />
       <TeamSection />
       <Separator />
       <CorporateCulture />
-    </section>
+    </div>
   );
 };
