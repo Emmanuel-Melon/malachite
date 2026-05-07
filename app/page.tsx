@@ -4,6 +4,7 @@ import { MentalHealthApproach } from "@/components/mental-health-approach";
 import { OurObjectives } from "@/components/our-objectives";
 import { ValuesSection } from "@/components/about/ValuesSection";
 import { Separator } from "@/components/molecules/separator";
+import { Partners } from "@/components/partners";
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
       <MentalHealthApproach />
       <Separator />
       <ValuesSection />
+      <Separator />
+      <Partners />
       <Separator />
       <OurPrograms />
       <Separator />

@@ -4,25 +4,19 @@ import { cn } from "@/lib/utils";
 interface IndicatorProps {
   variant?: 'primary' | 'secondary';
   size?: 'default' | 'lg' | 'xl';
-  activeDot?: 'left' | 'right';
+  isAnimating?: boolean;
   className?: string;
 }
 
 export const Indicator = ({ 
   variant = 'primary', 
   size = 'default', 
-  activeDot = 'left',
+  isAnimating = true,
   className 
 }: IndicatorProps) => {
   const variants = {
-    primary: {
-      dot1: "bg-primary",
-      dot2: "bg-primary/40"
-    },
-    secondary: {
-      dot1: "bg-secondary",
-      dot2: "bg-secondary/40"
-    }
+    primary: "bg-primary",
+    secondary: "bg-secondary",
   };
 
   const sizes = {
@@ -31,29 +25,22 @@ export const Indicator = ({
     xl: "w-4 h-4"
   };
 
-  const offsets = {
-    default: "-translate-y-0.5",
-    lg: "-translate-y-1",
-    xl: "-translate-y-1.5"
-  };
-
   const activeVariant = variants[variant];
   const activeSize = sizes[size];
-  const activeOffset = offsets[size];
 
   return (
     <div className={cn("flex gap-1.5 shrink-0 items-center", className)}>
       <div className={cn(
-        "rounded-full transition-all duration-300", 
+        "rounded-full", 
         activeSize, 
-        activeVariant.dot1,
-        activeDot === 'left' && activeOffset
+        activeVariant,
+        isAnimating && "animate-bounce"
       )} />
       <div className={cn(
-        "rounded-full transition-all duration-300", 
+        "rounded-full opacity-40", 
         activeSize, 
-        activeVariant.dot2,
-        activeDot === 'right' && activeOffset
+        activeVariant,
+        isAnimating && "animate-bounce [animation-delay:-0.15s]" 
       )} />
     </div>
   );
