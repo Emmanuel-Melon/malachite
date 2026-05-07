@@ -9,11 +9,11 @@ export default function Home() {
   return (
     <section className="space-y-24 md:space-y-0">
       <Hero />
-      <OurPrograms />
+      <MentalHealthApproach />
       <Separator />
       <ValuesSection />
       <Separator />
-      <MentalHealthApproach />
+      <OurPrograms />
       <Separator />
       <OurObjectives />
     </section>
