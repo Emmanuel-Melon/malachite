@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { LucideIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
+import type { LucideIcon } from "lucide-react";
 
 interface NavLinkProps {
   name: string;
@@ -27,7 +26,7 @@ export const MobileNavLink = ({ name, href, icon: Icon, onClick }: NavLinkProps)
     <Link
       href={href}
       onClick={onClick}
-      className="group hover:text-primary flex items-center gap-4 text-5xl tracking-tighter lowercase italic transition-colors"
+      className="group hover:text-primary flex items-center gap-4 text-5xl tracking-tighter transition-colors"
     >
       <Icon className="text-muted-foreground/40 group-hover:text-primary h-8 w-8 shrink-0 transition-all duration-300 group-hover:scale-110" />
       <span>{name}</span>

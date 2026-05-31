@@ -18,10 +18,12 @@ export const individualGroups: Omit<Program, "partners"> = {
       title: "Individual Counselling Sessions",
       points: [
         {
+          id: "1",
           desc: "Counseling for clients with complex conditions like schizophrenia, bipolar, and substance use, including client advocacy and mediation.",
           title: "Complex Condition Support",
         },
         {
+          id: "2",
           desc: "Referral to quality specialized mental health services and coaching for adolescents and adults with ADHD.",
           title: "Specialized Referrals",
         },
@@ -35,10 +37,12 @@ export const individualGroups: Omit<Program, "partners"> = {
       title: "Group Sessions",
       points: [
         {
+          id: "1",
           desc: "Tailored sessions to develop emotional literacy and treat depression and anxiety among young adults.",
           title: "Young Adult Literacy",
         },
         {
+          id: "2",
           desc: "An in-person session for senior citizens providing intellectually stimulating conversation, debate, and community building.",
           title: "Elders' Forum",
         },
@@ -52,10 +56,12 @@ export const individualGroups: Omit<Program, "partners"> = {
       title: "Family Support & Emergencies",
       points: [
         {
+          id: "1",
           desc: "Educating family members on signs/symptoms, handling secondary trauma, and managing family dynamics.",
           title: "Caregiver Education",
         },
         {
+          id: "2",
           desc: "Working with referral networks for both in and out-patient services to ensure dignity during emergencies.",
           title: "Psychiatric Emergency Support",
         },

@@ -1,6 +1,7 @@
 "use client";
 import { type LucideIcon, Mail, MapPin, Phone } from "lucide-react";
 import { PageHeader } from "@/components/molecules/layout/PageHeader";
+import { VIEW_LAYOUT_CLASS } from "@/lib/styles";
 import { ContactForm } from "../components/ContactForm";
 import { ContactInfoCard } from "../components/ContactInfoCard";
 import type { ContactMethodData, ContactViewProps } from "../contact.types";
@@ -13,7 +14,7 @@ const iconMap: Record<ContactMethodData["iconName"], LucideIcon> = {
 
 export const ContactView = ({ contactMethods }: ContactViewProps) => {
   return (
-    <section className="space-y-16">
+    <section className={VIEW_LAYOUT_CLASS}>
       <PageHeader
         gradientText="restoration."
         label="Get in Touch"
@@ -23,9 +24,9 @@ export const ContactView = ({ contactMethods }: ContactViewProps) => {
       <section>
         <div className="grid items-start gap-16 lg:grid-cols-12 lg:gap-24">
           <div className="space-y-8 lg:col-span-5">
-            {contactMethods.map((method, index) => (
+            {contactMethods.map((method) => (
               <ContactInfoCard
-                key={index}
+                key={method.id}
                 detail={method.detail}
                 icon={iconMap[method.iconName]}
                 subDetail={method.subDetail}

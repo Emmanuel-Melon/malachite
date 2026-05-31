@@ -18,14 +18,17 @@ export const workplace: Omit<Program, "partners"> = {
       title: "Services directed towards individual employees",
       points: [
         {
+          id: "1",
           desc: "We provide tailored treatment for depression, anxiety, burnout, and complex mental health issues through in-person or digital platforms.",
           title: "Individual Counselling Sessions",
         },
         {
+          id: "2",
           desc: "Support for employees caring for loved ones with mental illness with disease-relevant education and coping strategies.",
           title: "Family support",
         },
         {
+          id: "3",
           desc: "Collaboration with health service providers to ensure safety and dignified treatment during emergencies.",
           title: "Support for Psychiatric Emergencies",
         },
@@ -39,10 +42,12 @@ export const workplace: Omit<Program, "partners"> = {
       title: "Services directed towards teams/departments",
       points: [
         {
+          id: "1",
           desc: "Identifying areas for personal and team development. The Chaplain visit addresses challenges like burnout and interpersonal conflicts.",
           title: "Workplace chaplain services",
         },
         {
+          id: "2",
           desc: "Combining team building and therapeutic approaches to support teams struggling with poor dynamics.",
           title: "Meaningful team conversations",
         },
@@ -56,14 +61,17 @@ export const workplace: Omit<Program, "partners"> = {
       title: "Services to support strategic direction",
       points: [
         {
+          id: "1",
           desc: "Talks on emotional intelligence, nutrition, and leadership to improve emotional literacy and build resilience.",
           title: "Routine Mental Health Talks",
         },
         {
+          id: "2",
           desc: "Training and supervising peer counselors to help identify struggling staff and deliver psychological first-aid.",
           title: "Peer Mental Health Support",
         },
         {
+          id: "3",
           desc: "Reviewing strategic objectives through a mental health lens and creating indicators within risk frameworks.",
           title: "Strategic Mental Health",
         },

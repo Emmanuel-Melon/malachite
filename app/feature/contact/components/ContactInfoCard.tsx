@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { FocusItem } from "@/components/molecules/FocusItem";
+import { InfoBlock } from "@/components/molecules/InfoBlock";
 
 interface ContactInfoCardProps {
   icon: LucideIcon;
@@ -11,7 +11,7 @@ interface ContactInfoCardProps {
 export const ContactInfoCard = ({ icon, title, detail, subDetail }: ContactInfoCardProps) => {
   return (
     <div className="py-2 transition-transform duration-300 hover:translate-x-1">
-      <FocusItem icon={icon} title={title} description={`${detail} — ${subDetail}`} />
+      <InfoBlock icon={icon} title={title} description={`${detail} — ${subDetail}`} />
     </div>
   );
 };

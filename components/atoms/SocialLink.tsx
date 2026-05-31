@@ -18,7 +18,7 @@ export const SocialLink = ({ href, icon: Icon, label }: SocialLinkProps) => {
         iconClassName="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300"
       />
       {label && (
-        <span className="text-muted-foreground group-hover:text-primary text-[10px] font-bold tracking-[0.3em] uppercase transition-colors duration-300">
+        <span className="text-muted-foreground group-hover:text-primary text-[10px] font-bold tracking-[0.3em] transition-colors duration-300">
           {label}
         </span>
       )}

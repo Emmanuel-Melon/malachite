@@ -10,11 +10,12 @@ import {
   Twitter,
   Youtube,
 } from "lucide-react";
+import { GradientHeading } from "@/components/atoms/GradientHeading";
 import { IconContainer } from "@/components/atoms/IconContainer";
 import { SocialLink } from "@/components/atoms/SocialLink";
+import { Statement } from "@/components/atoms/Statement";
 import { MyButton } from "@/components/atoms/button";
 import { MyCard } from "@/components/atoms/card";
-import { Statement } from "@/components/molecules/Statement";
 import type { ContactItem, FooterNavGroup } from "@/lib/data/shared.types";
 import { getSiteData } from "@/lib/data/site";
 
@@ -64,7 +65,7 @@ const FooterNav = ({ groups }: { groups: FooterNavGroup[] }) => (
             <li key={link.label}>
               <Link
                 href={link.href}
-                className="group text-muted-foreground hover:text-foreground flex items-center gap-0 text-lg italic transition-all duration-300 hover:gap-3"
+                className="group text-muted-foreground hover:text-foreground flex items-center gap-0 text-lg tracking-tight transition-all duration-300 hover:gap-3"
               >
                 <ArrowRight className="text-primary h-5 w-0 opacity-0 transition-all group-hover:w-5 group-hover:opacity-100" />
                 {link.label}
@@ -78,7 +79,8 @@ const FooterNav = ({ groups }: { groups: FooterNavGroup[] }) => (
 );
 
 export const Footer = async () => {
-  const { contact, socials, navigation, ctaHeading, ctaSubheading } = await getSiteData();
+  const { contact, socials, navigation, ctaHeading, ctaSubheading, founderQuote } =
+    await getSiteData();
 
   return (
     <footer className="bg-background border-border/40 relative overflow-hidden border-t font-sans">
@@ -87,23 +89,14 @@ export const Footer = async () => {
           <div className="space-y-10 lg:col-span-6">
             <div className="space-y-6">
               <Link href="/" className="group inline-block">
-                <h2 className="text-4xl leading-[0.9] tracking-tighter">
-                  Malachite Center <br />
-                  <span className="from-primary bg-gradient-to-r to-orange-600 bg-clip-text text-transparent italic">
-                    for Mental Health
-                  </span>
-                </h2>
+                <GradientHeading
+                  as="h2"
+                  size="sm"
+                  title="Malachite Center"
+                  gradientText="for Mental Health"
+                />
               </Link>
-              <Statement
-                text={
-                  <>
-                    empowering individuals to reach their full potential through{" "}
-                    <span className="text-primary">sustainable recovery</span> and clinical
-                    innovation.
-                  </>
-                }
-                label="Our Mission"
-              />
+              <Statement text={founderQuote} label="Our Mission" />
             </div>
             <div className="flex flex-wrap gap-4">
               {socials.map((social) => {
@@ -119,16 +112,13 @@ export const Footer = async () => {
             </div>
             <FooterNav groups={navigation} />
             <div className="pt-8 md:col-span-2">
-              <MyCard className="bg-foreground text-background flex flex-col items-center justify-between gap-8 rounded-[2rem] border-none p-8 md:flex-row">
+              <MyCard className="bg-foreground text-background flex flex-col items-center justify-between p-8 md:flex-row">
                 <div className="space-y-1 text-center md:text-left">
                   <p className="text-2xl tracking-tighter">{ctaHeading}</p>
                   <p className="text-sm opacity-60">{ctaSubheading}</p>
                 </div>
-                <MyButton
-                  size="lg"
-                  className="bg-background text-foreground hover:bg-background/90 rounded-full px-8"
-                >
-                  contact us
+                <MyButton size="lg">
+                  Contact Us
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </MyButton>
               </MyCard>

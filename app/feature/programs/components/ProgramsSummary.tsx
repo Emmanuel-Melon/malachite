@@ -1,6 +1,14 @@
-import * as LucideIcons from "lucide-react";
-import { FocusItem } from "@/components/molecules/FocusItem";
+import { Briefcase, HelpCircle, type LucideIcon, Megaphone, School, Users2 } from "lucide-react";
+import { InfoBlock } from "@/components/molecules/InfoBlock";
+import { Section } from "@/components/organisms/section";
 import type { ProgramSummaryItem } from "../programs.types";
+
+const iconMap: Record<string, LucideIcon> = {
+  Briefcase: Briefcase,
+  School: School,
+  Users2: Users2,
+  Megaphone: Megaphone,
+};
 
 interface ProgramsSummaryProps {
   items: ProgramSummaryItem[];
@@ -8,24 +16,21 @@ interface ProgramsSummaryProps {
 
 export const ProgramsSummary = ({ items }: ProgramsSummaryProps) => {
   return (
-    <section className="bg-background overflow-hidden font-sans">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2">
-          {items.map((program, index) => {
-            const IconComponent =
-              (LucideIcons as Record<string, any>)[program.icon] || LucideIcons.HelpCircle;
+    <Section>
+      <div className="grid grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2">
+        {items.map((program) => {
+          const IconComponent = iconMap[program.icon] || HelpCircle;
 
-            return (
-              <FocusItem
-                key={index}
-                icon={IconComponent}
-                title={program.title}
-                description={program.description}
-              />
-            );
-          })}
-        </div>
+          return (
+            <InfoBlock
+              key={program.id}
+              icon={IconComponent}
+              title={program.title}
+              description={program.description}
+            />
+          );
+        })}
       </div>
-    </section>
+    </Section>
   );
 };

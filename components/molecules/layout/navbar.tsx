@@ -59,7 +59,7 @@ export const Navbar = ({ navLinks, phoneNumber }: NavbarProps) => {
             ) : (
               <span className="animate-in fade-in slide-in-from-left-2 text-xl font-medium tracking-tighter transition-colors duration-300 md:text-2xl">
                 malachite
-                <span className="text-primary ml-0.5 italic opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <span className="text-primary ml-0.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   .
                 </span>
               </span>
@@ -137,7 +137,7 @@ export const Navbar = ({ navLinks, phoneNumber }: NavbarProps) => {
         <div className="absolute right-10 bottom-12 left-10 space-y-8">
           <div className="bg-border/40 h-[1px] w-full" />
           <div className="flex flex-col gap-6">
-            <p className="text-muted-foreground text-xs font-bold tracking-[.4em] uppercase">
+            <p className="text-muted-foreground text-xs font-bold tracking-[.4em]">
               ready to talk?
             </p>
             <MyButton className="h-16 w-full rounded-full text-lg" onClick={() => setIsOpen(false)}>

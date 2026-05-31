@@ -1,14 +1,23 @@
 import Image from "next/image";
+import { Handshake, Heart, type LucideIcon, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { ImageContainer } from "@/components/molecules/ImageContainer";
 import { InfoBlock } from "@/components/molecules/InfoBlock";
 import { SectionHeader } from "@/components/molecules/SectionHeader";
 import { getCoreValues } from "../data";
 
+const iconMap: Record<string, LucideIcon> = {
+  heart: Heart,
+  users: Users,
+  sparkles: Sparkles,
+  "shield-check": ShieldCheck,
+  handshake: Handshake,
+};
+
 export const ValuesSection = async () => {
   const valuesData = await getCoreValues();
   return (
     <section>
-      <div className="border-border/50 relative overflow-hidden rounded-[4.5rem] border bg-[#F9F7F4] p-12 md:p-24">
+      <div className="border-border/50 relative overflow-hidden rounded-[4.5rem] border bg-[#F9F7F4] p-8 md:p-12 lg:p-24">
         <div className="bg-primary/5 pointer-events-none absolute top-0 right-0 h-[50%] w-[50%] rounded-full blur-[120px]" />
         <div className="pointer-events-none absolute bottom-0 left-0 h-[40%] w-[40%] rounded-full bg-orange-200/20 blur-[100px]" />
 
@@ -36,8 +45,13 @@ export const ValuesSection = async () => {
             />
 
             <div className="grid gap-6">
-              {valuesData.map((item, index) => (
-                <InfoBlock key={index} title={item.title} description={item.description} />
+              {valuesData.map((item) => (
+                <InfoBlock
+                  key={item.id}
+                  title={item.title}
+                  description={item.description}
+                  icon={iconMap[item.iconName]}
+                />
               ))}
             </div>
           </div>

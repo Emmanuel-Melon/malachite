@@ -2,14 +2,14 @@ import type { SiteData } from "./shared.types";
 
 const siteData: SiteData = {
   mission:
-    "empowering individuals to reach their full potential through sustainable recovery and clinical innovation.",
+    "Empowering individuals to reach their full potential through sustainable recovery and clinical innovation.",
   founderName: "Christina Angela Ntulo",
   founderRole: "Founder",
   founderQuote:
-    "empowering individuals to reach their full potential through sustainable recovery and clinical innovation.",
+    "Empowering individuals to reach their full potential through sustainable recovery and clinical innovation.",
   phoneNumber: "+256757356691",
-  ctaHeading: "ready to start your journey?",
-  ctaSubheading: "get in touch with our specialist team today.",
+  ctaHeading: "Ready to start your journey?",
+  ctaSubheading: "Get in touch with our specialist team today.",
   contact: [
     { icon: "map-pin", value: "672 Wamala Rd, Kampala" },
     { icon: "phone", value: "+256757356691" },
@@ -26,16 +26,16 @@ const siteData: SiteData = {
     { href: "https://youtube.com/@MalachiteMediaUg", icon: "youtube", label: "@MalachiteMediaUg" },
   ],
   navLinks: [
-    { name: "about", href: "/about", icon: "info" },
-    { name: "programs", href: "/programs", icon: "layers" },
-    { name: "contact", href: "/contact", icon: "mail" },
+    { name: "About", href: "/about", icon: "info" },
+    { name: "Programs", href: "/programs", icon: "layers" },
+    { name: "Contact", href: "/contact", icon: "mail" },
   ],
   navigation: [
     {
       title: "Company",
       links: [
-        { label: "about us", href: "/about" },
-        { label: "contact", href: "/contact" },
+        { label: "About us", href: "/about" },
+        { label: "Contact", href: "/contact" },
       ],
     },
   ],

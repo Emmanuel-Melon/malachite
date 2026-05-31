@@ -11,17 +11,14 @@ export interface FounderData {
 }
 
 export interface TeamMember {
+  id: string;
   name: string;
   role: string;
   image: string;
 }
 
-export interface CoreValue {
-  title: string;
-  description: string;
-}
-
 export interface CultureItemData {
+  id: string;
   title: string;
   description: string;
   iconName: "users" | "sparkles" | "shield-check" | "handshake";

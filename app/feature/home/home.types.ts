@@ -4,6 +4,7 @@ export interface HeroData {
 }
 
 export interface FocusArea {
+  id: string;
   iconName: "search" | "crown" | "dumbbell";
   tag: string;
   title: string;
@@ -25,12 +26,13 @@ export type ObjectiveIconName =
 
 export interface Objective {
   description: string;
-  id: number;
+  id: string;
   iconName: ObjectiveIconName;
   title: string;
 }
 
 export interface Event {
+  id: string;
   day: string;
   month: string;
   tag: string;
@@ -41,12 +43,14 @@ export interface Event {
 }
 
 export interface Testimonial {
+  id: string;
   quote: string;
   author: string;
   role: string;
 }
 
 export interface HeroGridItem {
+  id: string;
   alt: string;
   aspect: string;
   bottomPadding: string;
@@ -57,4 +61,11 @@ export interface HeroGridItem {
   rotate: string;
   src: string;
   zIndex: string;
+}
+
+export interface CoreValue {
+  id: string;
+  title: string;
+  description: string;
+  iconName: "heart" | "users" | "sparkles" | "shield-check" | "handshake";
 }

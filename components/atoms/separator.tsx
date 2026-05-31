@@ -10,7 +10,7 @@ export const Separator = ({ className, label, showDots = true }: SeparatorProps)
   return (
     <div
       className={cn(
-        "relative hidden w-full items-center justify-center py-16 md:flex md:py-24",
+        "relative my-0 hidden w-full items-center justify-center py-0 md:flex",
         className,
       )}
     >
@@ -28,7 +28,7 @@ export const Separator = ({ className, label, showDots = true }: SeparatorProps)
         )}
 
         {label && (
-          <span className="text-muted-foreground font-mono text-[10px] tracking-[0.5em] uppercase">
+          <span className="text-muted-foreground font-mono text-[10px] tracking-[0.5em]">
             {label}
           </span>
         )}

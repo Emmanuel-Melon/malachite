@@ -1,51 +1,43 @@
 import { Clock, MapPin } from "lucide-react";
-import { Indicator } from "@/components/atoms/Indicator";
 import { MyCard } from "@/components/atoms/card";
 import { CardContent } from "@/components/ui/card";
 import type { Event } from "../home.types";
 
-interface EventCardProps extends Event {}
+interface EventCardProps {
+  event: Event;
+}
 
-export const EventCard = ({
-  day,
-  month,
-  title,
-  description,
-  time,
-  location,
-  tag,
-}: EventCardProps) => {
+export const EventCard = ({ event }: EventCardProps) => {
   return (
-    <MyCard className="group">
-      <CardContent className="flex flex-col gap-8 pt-6">
-        <div className="flex items-center justify-between">
-          <div className="border-border/60 bg-secondary/10 flex min-w-[64px] shrink-0 flex-col items-center justify-center rounded-xl border px-4 py-2">
-            <span className="text-foreground text-2xl font-bold tracking-tighter">{day}</span>
-            <span className="text-muted-foreground text-[10px] font-bold tracking-widest uppercase">
-              {month}
-            </span>
+    <MyCard className="group relative overflow-hidden transition-all duration-300 hover:shadow-lg">
+      <CardContent className="flex flex-col gap-6 pt-8">
+        <div className="space-y-3">
+          <div className="flex items-center gap-2">
+            <span className="text-primary tracking-[0.25em]">{event.tag}</span>
+            <span className="text-muted-foreground/30 text-xs">•</span>
+            <span className="text-muted-foreground tracking-wider">{event.month}</span>
           </div>
-          <Indicator isAnimating={false} />
-        </div>
 
-        <div className="space-y-2">
-          <p className="text-primary text-[10px] font-bold tracking-[0.25em] uppercase">{tag}</p>
-          <h3 className="text-foreground text-xl font-semibold tracking-tighter md:text-2xl">
-            {title}
+          <h3 className="text-foreground text-xl font-medium tracking-tighter transition-colors duration-300 group-hover:text-orange-500 md:text-2xl">
+            {event.title}
           </h3>
-          <p className="text-muted-foreground text-base leading-relaxed lowercase">{description}</p>
+
+          <p className="text-muted-foreground text-base leading-relaxed">{event.description}</p>
         </div>
 
-        <div className="border-border flex items-center gap-4 border-t pt-4">
-          <div className="bg-primary/10 group-hover:bg-primary/20 flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-colors duration-300">
-            <Clock className="text-primary h-4 w-4" />
+        <div className="border-border flex flex-col gap-3 border-t pt-5">
+          <div className="flex items-center gap-3">
+            <div className="bg-primary/10 group-hover:bg-primary/20 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl transition-colors duration-300">
+              <Clock className="text-primary h-3.5 w-3.5" />
+            </div>
+            <p className="text-foreground text-sm font-medium tracking-tight">{event.time}</p>
           </div>
-          <div>
-            <p className="text-foreground text-sm font-semibold tracking-tight">{time}</p>
-            <p className="text-muted-foreground mt-0.5 flex items-center gap-1.5 text-[11px] font-bold tracking-wider uppercase">
-              <MapPin className="h-3 w-3" />
-              {location}
-            </p>
+
+          <div className="flex items-center gap-3">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 transition-colors duration-300 group-hover:bg-orange-500/20">
+              <MapPin className="h-3.5 w-3.5 text-orange-600" />
+            </div>
+            <p className="text-muted-foreground text-sm tracking-tight">{event.location}</p>
           </div>
         </div>
       </CardContent>

@@ -10,22 +10,25 @@ export async function getContactMethods(): Promise<ContactMethodData[]> {
 
   return [
     {
+      id: "contact-method-location",
       iconName: "map-pin",
-      title: "our location",
+      title: "Our Location",
       detail: address,
-      subDetail: "available for in-person consultations",
+      subDetail: "Available for in-person consultations",
     },
     {
+      id: "contact-method-email",
       iconName: "mail",
-      title: "email us",
+      title: "Email Us",
       detail: "care@malachitemedical.com",
-      subDetail: "we respond within 24 business hours",
+      subDetail: "We respond within 24 business hours",
     },
     {
+      id: "contact-method-phone",
       iconName: "phone",
-      title: "call support",
+      title: "Call Support",
       detail: phone,
-      subDetail: "mon - fri: 8am to 6pm",
+      subDetail: "Mon - Fri: 8am to 6pm",
     },
   ];
 }

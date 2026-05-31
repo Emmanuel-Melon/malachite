@@ -2,6 +2,7 @@ import type { LucideIcon } from "lucide-react";
 import type { Partner } from "@/lib/data/shared.types";
 
 export interface ProgramPoint {
+  id: string;
   title: string;
   desc: string;
 }
@@ -9,7 +10,7 @@ export interface ProgramPoint {
 export interface ProgramSection {
   id: string;
   title: string;
-  icon: string; // The string identifier used in static mock files/databases
+  icon: string;
   color: string;
   bg: string;
   points: ProgramPoint[];
@@ -27,6 +28,7 @@ export interface Program {
 }
 
 export interface ProgramSummaryItem {
+  id: string;
   icon: string;
   title: string;
   description: string;
@@ -40,8 +42,9 @@ export interface ProgramContentProps {
 }
 
 export interface ProgramSectionData {
+  id: string;
   title: string;
-  icon: LucideIcon | string; // Resolves directly to the actual Lucide Icon Component inside the UI
+  icon: LucideIcon | string;
   color: string;
   bg: string;
   points: ProgramPoint[];

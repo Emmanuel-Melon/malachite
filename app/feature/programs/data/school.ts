@@ -18,14 +18,17 @@ export const school: Omit<Program, "partners"> = {
       title: "Services directed towards the individual",
       points: [
         {
+          id: "1",
           desc: "Working in partnership with parents/guardians and school management to provide tailored treatment for depression, anxiety, burnout, and complex mental health issues.",
           title: "Individual Counselling Sessions",
         },
         {
+          id: "2",
           desc: "Supporting parents and guardians caring for loved ones with mental illness with disease-relevant education, coping strategies, and identifying quality primary services.",
           title: "Family support",
         },
         {
+          id: "3",
           desc: "Collaborating with health service providers to ensure safety and dignified treatment for students during acute emergencies.",
           title: "Support for Psychiatric Emergencies",
         },
@@ -39,14 +42,17 @@ export const school: Omit<Program, "partners"> = {
       title: "Other services for schools",
       points: [
         {
+          id: "1",
           desc: "10-15 minute conversations with individual staff and students during routine school day visits to identify those who are struggling and encourage counseling.",
           title: "School-Based Chaplain Services",
         },
         {
+          id: "2",
           desc: "Using games to teach emotional literacy and spiritual intelligence, helping adolescents master and take charge of their mental health.",
           title: "Emotional Literacy Program",
         },
         {
+          id: "3",
           desc: "Fusing team building and therapeutic approaches to help school teams identify behaviors that trigger mental health challenges and promote healthy dynamics.",
           title: "Meaningful team conversations and problem-solving",
         },

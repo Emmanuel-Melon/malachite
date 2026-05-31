@@ -4,8 +4,9 @@ import { Partners } from "@/app/feature/home/components/partners";
 import { ProgramContent } from "@/app/feature/programs/components/ProgramContent";
 import { ProgramsSummary } from "@/app/feature/programs/components/ProgramsSummary";
 import { TabNavigation } from "@/app/feature/programs/components/TabNavigation";
+import { Separator } from "@/components/atoms/separator";
 import { PageHeader } from "@/components/molecules/layout/PageHeader";
-import { Separator } from "@/components/molecules/separator";
+import { VIEW_LAYOUT_CLASS } from "@/lib/styles";
 import type { ProgramSummaryItem, ProgramsRegistry } from "../programs.types";
 
 interface ProgramsViewProps {
@@ -18,7 +19,7 @@ export const ProgramsView = ({ programs, programList }: ProgramsViewProps) => {
   const program = programs[activeTab];
 
   return (
-    <section className="space-y-8">
+    <section className={VIEW_LAYOUT_CLASS}>
       <PageHeader
         gradientText="health programs."
         label="Malachite's Programs"
@@ -26,19 +27,18 @@ export const ProgramsView = ({ programs, programList }: ProgramsViewProps) => {
         title="Tailored mental"
       />
       <ProgramsSummary items={programList} />
-      <Separator />
       <TabNavigation
         activeTab={activeTab}
         onTabChange={setActiveTab}
         tabs={Object.keys(programs) as (keyof typeof programs)[]}
       />
-      <div className="mt-8">
+      <div>
         {program.partners && program.partners.length > 0 && (
           <Partners
             description={
               activeTab === "workplace"
-                ? "we run tailored workplace wellness systems across east africa's top operational environments."
-                : "we support youth development and educational leadership tracks across leading local schools."
+                ? "We run tailored workplace wellness systems across east africa's top operational environments."
+                : "We support youth development and educational leadership tracks across leading local schools."
             }
             gradientText={
               activeTab === "workplace" ? "corporate teams." : "educational communities."
@@ -49,7 +49,7 @@ export const ProgramsView = ({ programs, programList }: ProgramsViewProps) => {
           />
         )}
       </div>
-      <section className="py-12 md:py-0">
+      <section className="md:py-0">
         <ProgramContent program={program} />
       </section>
     </section>

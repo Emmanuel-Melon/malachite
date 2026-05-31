@@ -1,4 +1,4 @@
-import { LoadingState } from "@/components/molecules/async-states/loading";
+import { LoadingState } from "@/components/organisms/async-states/loading";
 
 export default function SiteLoading() {
   return <LoadingState />;

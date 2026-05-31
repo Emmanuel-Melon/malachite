@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import {
   Instagram,
@@ -9,6 +10,7 @@ import {
   Users,
   Youtube,
 } from "lucide-react";
+import { GradientHeading } from "@/components/atoms/GradientHeading";
 import { IconContainer } from "@/components/atoms/IconContainer";
 import { SocialLink as SocialLinkComponent } from "@/components/atoms/SocialLink";
 import { MyButton } from "@/components/atoms/button";
@@ -53,15 +55,15 @@ export const Hero = ({ subtitles, description, founder, gridItems, socials }: He
         <div className="mb-20 grid items-start gap-12 lg:grid-cols-12">
           <div className="space-y-12 lg:col-span-8">
             <div className="space-y-6">
-              <div className="relative h-6 overflow-hidden">
+              <div className="grid w-full grid-cols-1 grid-rows-1 overflow-hidden">
                 {subtitles.map((text, i) => (
                   <h3
                     key={i}
                     className={cn(
-                      "absolute top-0 left-0 text-sm font-bold tracking-[.4em] whitespace-nowrap transition-all duration-700 ease-in-out md:text-xl",
+                      "col-start-1 row-start-1 w-full pr-4 text-sm tracking-[.25em] text-balance transition-all duration-700 ease-in-out md:text-xl md:tracking-[.4em]",
                       activeSubtitle === i
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-full opacity-0",
+                        ? "visible translate-y-0 opacity-100"
+                        : "pointer-events-none invisible translate-y-4 opacity-0",
                     )}
                   >
                     {text}
@@ -69,27 +71,27 @@ export const Hero = ({ subtitles, description, founder, gridItems, socials }: He
                 ))}
               </div>
 
-              <h1 className="text-foreground text-5xl leading-[0.8] tracking-tighter md:text-8xl lg:text-[110px]">
-                hope, healing, <br />
-                <span className="from-primary to-primary animate-gradient-x bg-gradient-to-r via-orange-500 bg-[length:200%_auto] bg-clip-text text-transparent italic">
-                  and restoration.
-                </span>
-              </h1>
+              <GradientHeading
+                as="h1"
+                size="xl"
+                title="Hope, healing,"
+                gradientText="and restoration."
+              />
             </div>
 
             <div className="space-y-10">
-              <p className="text-muted-foreground max-w-2xl text-xl leading-relaxed lowercase md:text-2xl">
+              <p className="text-muted-foreground max-w-2xl text-xl leading-relaxed md:text-2xl">
                 {description}
               </p>
 
               <div className="flex flex-wrap items-center gap-8">
                 <div className="flex flex-wrap gap-4">
                   <MyButton variant="default" size="lg" className="px-8">
-                    view programs
+                    View Programs
                   </MyButton>
                 </div>
-                <div className="border-border/60 flex hidden items-center gap-4 border-l pl-8 md:flex">
-                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div className="border-border/60 flex items-center gap-4 border-l pl-8">
+                  <div className="flex flex-wrap items-center gap-4">
                     {socials.map((social, index) => {
                       const ResolvedIcon = socialIconMap[social.icon] || MessageSquare;
                       return (
@@ -108,7 +110,7 @@ export const Hero = ({ subtitles, description, founder, gridItems, socials }: He
 
             <MyCard className="bg-foreground text-background relative z-10 border-none p-8 shadow-2xl md:p-10">
               <div className="space-y-8">
-                <p className="text-2xl leading-tight font-medium tracking-tight italic md:text-3xl">
+                <p className="text-2xl leading-tight font-medium tracking-tight md:text-3xl">
                   &ldquo;{founder.founderQuote}&rdquo;
                 </p>
                 <div className="border-background/10 flex items-center gap-4 border-t pt-6">
@@ -119,7 +121,7 @@ export const Hero = ({ subtitles, description, founder, gridItems, socials }: He
                     iconClassName="text-background"
                   />
                   <div>
-                    <p className="text-[10px] font-bold tracking-[.3em] uppercase opacity-60">
+                    <p className="text-[10px] font-bold tracking-[.3em] opacity-60">
                       {founder.founderRole}
                     </p>
                     <p className="text-lg tracking-tight">{founder.founderName}</p>

@@ -7,32 +7,36 @@ import { workplace } from "./workplace";
 
 const programList: ProgramSummaryItem[] = [
   {
+    id: "program-summary-workplace",
     description:
-      "targeted solutions for corporate environments, focusing on productivity and employee well-being.",
+      "Targeted solutions for corporate environments, focusing on productivity and employee well-being.",
     icon: "Briefcase",
     key: "workplace",
-    title: "workplace mental health",
+    title: "Workplace Mental Health",
   },
   {
+    id: "program-summary-school",
     description:
-      "supporting adolescent development through emotional literacy and school-wide mental health advocacy.",
+      "Supporting adolescent development through emotional literacy and school-wide mental health advocacy.",
     icon: "School",
     key: "school",
-    title: "school-based services",
+    title: "School-Based Services",
   },
   {
+    id: "program-summary-individual",
     description:
-      "tailored therapeutic interventions for depression, anxiety, and complex recovery journeys.",
+      "Tailored therapeutic interventions for depression, anxiety, and complex recovery journeys.",
     icon: "Users2",
     key: "individual_groups",
-    title: "individuals & groups",
+    title: "Individuals & Groups",
   },
   {
+    id: "program-summary-awareness",
     description:
-      "utilizing digital media and community series to bridge the gap in mental health literacy.",
+      "Utilizing digital media and community series to bridge the gap in mental health literacy.",
     icon: "Megaphone",
     key: "awareness",
-    title: "awareness & outreach",
+    title: "Awareness & Outreach",
   },
 ];
 

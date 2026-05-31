@@ -1,6 +1,7 @@
-import { ValuesSection } from "@/app/feature/about/components/ValuesSection";
-import { Separator } from "@/components/molecules/separator";
+import { ValuesSection } from "@/app/feature/home/components/ValuesSection";
+import { Separator } from "@/components/atoms/separator";
 import type { Partner, SiteData } from "@/lib/data/shared.types";
+import { VIEW_LAYOUT_CLASS } from "@/lib/styles";
 import { MentalHealthApproach } from "../components/MentalHealthApproach";
 import { OurObjectives } from "../components/OurObjectives";
 import { OurPrograms } from "../components/OurPrograms";
@@ -20,7 +21,7 @@ interface HomeViewProps {
 
 export const HomeView = ({ hero, partners, site, testimonials, gridItems }: HomeViewProps) => {
   return (
-    <section>
+    <section className={VIEW_LAYOUT_CLASS}>
       <Hero
         {...hero}
         founder={{
@@ -33,9 +34,7 @@ export const HomeView = ({ hero, partners, site, testimonials, gridItems }: Home
       />
       <Partners items={partners} />
       <MentalHealthApproach />
-      <Separator />
       <ValuesSection />
-      <Separator />
       <OurPrograms />
       <Separator />
       <OurObjectives />

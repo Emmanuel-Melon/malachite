@@ -25,7 +25,7 @@ export const HeroGrid = ({ items }: HeroGridProps) => {
                 className={`absolute inset-0 bg-gradient-to-t transition-opacity ${item.gradientOpacity}`}
               />
               <div className={`absolute ${item.bottomPadding}`}>
-                <p className="text-[10px] tracking-widest text-white uppercase">{item.label}</p>
+                <p className="text-[10px] tracking-widest text-white">{item.label}</p>
               </div>
             </ImageContainer>
           </div>

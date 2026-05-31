@@ -1,5 +1,5 @@
+import { Statement } from "@/components/atoms/Statement";
 import { SectionHeader } from "@/components/molecules/SectionHeader";
-import { Statement } from "@/components/molecules/Statement";
 
 interface PageHeaderProps {
   label: string;

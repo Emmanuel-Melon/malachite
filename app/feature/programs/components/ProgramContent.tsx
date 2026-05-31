@@ -1,5 +1,5 @@
+import { Statement } from "@/components/atoms/Statement";
 import { SectionHeader } from "@/components/molecules/SectionHeader";
-import { Statement } from "@/components/molecules/Statement";
 import type { Program } from "../programs.types";
 import { ProgramSection } from "./ProgramSection";
 
@@ -26,8 +26,8 @@ export const ProgramContent = ({ program }: ProgramContentProps) => {
 
       <div className="grid gap-16 lg:grid-cols-12">
         <div className="space-y-16 lg:col-span-8">
-          {program.sections.map((section: any, idx: number) => (
-            <ProgramSection key={idx} section={section} />
+          {program.sections.map((section) => (
+            <ProgramSection key={section.id} section={section} />
           ))}
         </div>
       </div>

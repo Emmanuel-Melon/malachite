@@ -19,10 +19,12 @@ export const awareness: Program = {
       bg: "bg-cyan-500/10",
       points: [
         {
+          id: "1",
           title: "Malachite Media (YouTube)",
           desc: "A dedicated channel hosting diverse programs developed by our organization and content from other mental health-focused enthusiasts.",
         },
         {
+          id: "2",
           title: "Social Media Education",
           desc: "Concurrent monthly mental health series across all social accounts to promote literacy and address misconceptions.",
         },
@@ -36,10 +38,12 @@ export const awareness: Program = {
       bg: "bg-cyan-500/10",
       points: [
         {
+          id: "1",
           title: "Safe Space Communities",
           desc: "Dedicated WhatsApp and Facebook communities to foster discussion, challenge negative perceptions, and learn from those in recovery.",
         },
         {
+          id: "2",
           title: "In-house Corporate Series",
           desc: "Assisting companies in developing educational campaigns tailored to their staff's specific needs via internal intranets or WhatsApp groups.",
         },
