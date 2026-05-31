@@ -11,7 +11,7 @@ import type {
 
 const heroData: HeroData = {
   description:
-    "Redefine your path to sustained well-being with personalized recovery and integrated community support.",
+    "We are committed to restoring mental well being with evidence based conventional and biblical approaches.",
   subtitles: [
     "We offer you a safe space to explore and learn",
     "Discover a path to mental well-being",
