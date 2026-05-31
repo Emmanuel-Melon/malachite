@@ -6,40 +6,38 @@ interface SeparatorProps {
   showDots?: boolean;
 }
 
-export const Separator = ({ 
-  className, 
-  label, 
-  showDots = true 
-}: SeparatorProps) => {
+export const Separator = ({ className, label, showDots = true }: SeparatorProps) => {
   return (
-    <div className={cn(
-      "relative w-full py-16 md:py-24 hidden md:flex items-center justify-center", 
-      className
-    )}>
+    <div
+      className={cn(
+        "relative hidden w-full items-center justify-center py-16 md:flex md:py-24",
+        className,
+      )}
+    >
       <div className="absolute inset-0 flex items-center" aria-hidden="true">
-        <div className="w-full border-t border-border/40" />
+        <div className="border-border/40 w-full border-t" />
       </div>
-      
-      <div className="relative flex items-center gap-4 bg-background px-8">
+
+      <div className="bg-background relative flex items-center gap-4 px-8">
         {showDots && (
           <div className="flex gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
-            <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
-            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+            <div className="bg-primary/20 h-1.5 w-1.5 rounded-full" />
+            <div className="bg-primary/40 h-1.5 w-1.5 rounded-full" />
+            <div className="bg-primary h-1.5 w-1.5 rounded-full" />
           </div>
         )}
-        
+
         {label && (
-          <span className="text-[10px] font-mono tracking-[0.5em] text-muted-foreground uppercase">
+          <span className="text-muted-foreground font-mono text-[10px] tracking-[0.5em] uppercase">
             {label}
           </span>
         )}
 
         {showDots && (
           <div className="flex gap-1.5">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-            <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
-            <div className="w-1.5 h-1.5 rounded-full bg-primary/20" />
+            <div className="bg-primary h-1.5 w-1.5 rounded-full" />
+            <div className="bg-primary/40 h-1.5 w-1.5 rounded-full" />
+            <div className="bg-primary/20 h-1.5 w-1.5 rounded-full" />
           </div>
         )}
       </div>

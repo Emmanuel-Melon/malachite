@@ -10,14 +10,10 @@ interface PageHeaderProps {
 
 export const PageHeader = ({ label, title, gradientText, statement }: PageHeaderProps) => {
   return (
-    <section className="relative md:pb-24 overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="relative overflow-hidden md:pb-24">
+      <div className="relative z-10 container mx-auto px-6">
         <div className="max-w-4xl space-y-4">
-          <SectionHeader
-            label={label}
-            title={title}
-            gradientText={gradientText}
-          />
+          <SectionHeader label={label} title={title} gradientText={gradientText} />
           {statement && <Statement text={statement} />}
         </div>
       </div>

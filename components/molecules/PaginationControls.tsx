@@ -25,23 +25,23 @@ export const PaginationControls = ({
       <MyButton
         variant="outline"
         size="icon"
-        className="w-10 h-10 rounded-full border-border/60 hover:bg-secondary/20 transition-all duration-300 active:scale-95"
+        className="border-border/60 hover:bg-secondary/20 h-10 w-10 rounded-full transition-all duration-300 active:scale-95"
         onClick={onPrev}
         aria-label={prevLabel}
       >
-        <ArrowLeft className="w-4 h-4 text-muted-foreground" />
+        <ArrowLeft className="text-muted-foreground h-4 w-4" />
       </MyButton>
       <MyButton
         variant="outline"
         size="icon"
-        className="w-10 h-10 rounded-full border-border/60 hover:bg-secondary/20 transition-all duration-300 active:scale-95"
+        className="border-border/60 hover:bg-secondary/20 h-10 w-10 rounded-full transition-all duration-300 active:scale-95"
         onClick={onNext}
         aria-label={nextLabel}
       >
-        <ArrowRight className="w-4 h-4 text-muted-foreground" />
+        <ArrowRight className="text-muted-foreground h-4 w-4" />
       </MyButton>
-      <span className="text-[10px] font-mono tracking-widest text-muted-foreground/60 ml-2">
-        {String(page + 1).padStart(2, '0')} / {String(totalPages).padStart(2, '0')}
+      <span className="text-muted-foreground/60 ml-2 font-mono text-[10px] tracking-widest">
+        {String(page + 1).padStart(2, "0")} / {String(totalPages).padStart(2, "0")}
       </span>
     </div>
   );

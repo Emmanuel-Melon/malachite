@@ -15,15 +15,13 @@ export const ImageContainer = ({
   return (
     <div
       className={cn(
-        "relative rounded-[4.5rem] overflow-hidden bg-background",
+        "bg-background relative overflow-hidden rounded-[4.5rem]",
         "border-[12px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)]",
         borderColor,
-        className
+        className,
       )}
     >
-      <div className="relative w-full h-full rounded-[3.2rem] overflow-hidden">
-        {children}
-      </div>
+      <div className="relative h-full w-full overflow-hidden rounded-[3.2rem]">{children}</div>
     </div>
   );
 };

@@ -10,19 +10,15 @@ interface SocialLinkProps {
 
 export const SocialLink = ({ href, icon: Icon, label }: SocialLinkProps) => {
   return (
-    <Link 
-      href={href} 
-      className="group flex items-center gap-3 transition-all"
-      aria-label={label}
-    >
+    <Link href={href} className="group flex items-center gap-3 transition-all" aria-label={label}>
       <IconContainer
         icon={Icon}
         variant="default"
-        className="w-12 h-12 rounded-xl"
+        className="h-12 w-12 rounded-xl"
         iconClassName="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors duration-300"
       />
       {label && (
-        <span className="text-[10px] font-bold tracking-[0.3em] text-muted-foreground uppercase group-hover:text-primary transition-colors duration-300">
+        <span className="text-muted-foreground group-hover:text-primary text-[10px] font-bold tracking-[0.3em] uppercase transition-colors duration-300">
           {label}
         </span>
       )}

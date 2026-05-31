@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { cn } from "@/lib/utils";
 
 interface StatementProps {
@@ -7,24 +7,18 @@ interface StatementProps {
   className?: string;
 }
 
-export const Statement = ({ 
-  text, 
-  label, 
-  className 
-}: StatementProps) => {
+export const Statement = ({ text, label, className }: StatementProps) => {
   return (
-    <div className={cn("relative pl-8 max-w-sm", className)}>
-      <div className="absolute left-0 top-1.5 bottom-1.5 w-1.5 rounded-full bg-gradient-to-b from-primary via-primary/50 to-transparent" />
-      
-      <p className="text-xl leading-relaxed text-foreground/90 font-medium tracking-tight lowercase">
+    <div className={cn("relative max-w-sm pl-8", className)}>
+      <div className="from-primary via-primary/50 absolute top-1.5 bottom-1.5 left-0 w-1.5 rounded-full bg-gradient-to-b to-transparent" />
+
+      <p className="text-foreground/90 text-xl leading-relaxed font-medium tracking-tight lowercase">
         {text}
       </p>
-      
+
       <div className="mt-4 flex items-center gap-2">
-        <div className="h-px w-8 bg-border" />
-        <span className="text-[10px] tracking-[.3em] text-muted-foreground font-bold">
-          {label}
-        </span>
+        <div className="bg-border h-px w-8" />
+        <span className="text-muted-foreground text-[10px] font-bold tracking-[.3em]">{label}</span>
       </div>
     </div>
   );
