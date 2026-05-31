@@ -58,7 +58,7 @@ const FooterNav = ({ groups }: { groups: FooterNavGroup[] }) => (
     {groups.map((group) => (
       <div key={group.title} className="space-y-8">
         <div className="inline-flex items-center gap-3">
-          <h3 className="text-xs font-bold tracking-[.4em]">{group.title}</h3>
+          <h3 className="text-xs tracking-[.4em]">{group.title}</h3>
         </div>
         <ul className="space-y-4">
           {group.links.map((link) => (

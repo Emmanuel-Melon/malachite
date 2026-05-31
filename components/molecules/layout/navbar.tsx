@@ -69,14 +69,7 @@ export const Navbar = ({ navLinks, phoneNumber }: NavbarProps) => {
           <div className="hidden items-center gap-12 lg:flex">
             {navLinks.map((link) => {
               const ResolvedIcon = navIconMap[link.icon] || Info;
-              return (
-                <DesktopNavLink
-                  key={link.name}
-                  name={link.name}
-                  href={link.href}
-                  icon={ResolvedIcon}
-                />
-              );
+              return <DesktopNavLink key={link.name} name={link.name} href={link.href} />;
             })}
           </div>
 
@@ -85,7 +78,7 @@ export const Navbar = ({ navLinks, phoneNumber }: NavbarProps) => {
               <div className="border-border/60 group-hover:border-primary flex h-10 w-10 items-center justify-center rounded-full border transition-colors">
                 <Phone className="text-muted-foreground group-hover:text-primary h-3.5 w-3.5 transition-colors" />
               </div>
-              <span className="text-sm font-bold tracking-tight">{phoneNumber}</span>
+              <span className="text-sm tracking-tight">{phoneNumber}</span>
             </a>
           </div>
 
@@ -121,13 +114,11 @@ export const Navbar = ({ navLinks, phoneNumber }: NavbarProps) => {
 
         <div className="mt-10 flex flex-col gap-10 p-10">
           {navLinks.map((link) => {
-            const ResolvedIcon = navIconMap[link.icon] || Info;
             return (
               <MobileNavLink
                 key={link.name}
                 name={link.name}
                 href={link.href}
-                icon={ResolvedIcon}
                 onClick={() => setIsOpen(false)}
               />
             );
@@ -137,11 +128,9 @@ export const Navbar = ({ navLinks, phoneNumber }: NavbarProps) => {
         <div className="absolute right-10 bottom-12 left-10 space-y-8">
           <div className="bg-border/40 h-[1px] w-full" />
           <div className="flex flex-col gap-6">
-            <p className="text-muted-foreground text-xs font-bold tracking-[.4em]">
-              ready to talk?
-            </p>
-            <MyButton className="h-16 w-full rounded-full text-lg" onClick={() => setIsOpen(false)}>
-              book appointment
+            <p className="text-muted-foreground text-xs tracking-[.4em]">ready to talk?</p>
+            <MyButton className="w-full" onClick={() => setIsOpen(false)}>
+              Book Appointment
             </MyButton>
           </div>
         </div>

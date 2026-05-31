@@ -45,10 +45,8 @@ export const AboutHeader = ({
               />
               <div className="from-primary/40 via-primary/10 absolute inset-0 flex flex-col justify-end bg-gradient-to-t to-transparent p-8 md:p-10">
                 <div className="translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
-                  <p className="mb-2 text-[10px] font-bold tracking-[.5em] text-white/90 lowercase">
-                    {founderRole}
-                  </p>
-                  <h3 className="text-3xl leading-tight font-semibold tracking-tighter text-white lowercase italic md:text-4xl">
+                  <p className="mb-2 text-[10px] tracking-[.5em] text-white/90">{founderRole}</p>
+                  <h3 className="text-3xl leading-tight font-semibold tracking-tighter text-white md:text-4xl">
                     {founderName}
                   </h3>
                   <div className="mt-4 h-1 w-12 rounded-full bg-white" />

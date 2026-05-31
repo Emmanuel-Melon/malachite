@@ -18,13 +18,11 @@ export const IconContainer = ({
   bg,
   color,
 }: IconContainerProps) => {
-  const standardShadow =
-    "shadow-[0_0_0.25em_rgba(67,71,85,0.27),0_0.25em_1em_rgba(90,125,188,0.05)]";
-  const hoverShadow =
-    "hover:shadow-[0_0_0.4em_rgba(67,71,85,0.3),0_0.3em_1.2em_rgba(90,125,188,0.08)]";
+  const standardShadow = "shadow-[0_0_0.25em_var(--border),0_0.25em_1em_var(--border)]";
+  const hoverShadow = "hover:shadow-[0_0_0.4em_var(--border),0_0.3em_1.2em_var(--border)]";
 
   const variants = {
-    default: cn("bg-[#FCFCFD] text-primary", standardShadow),
+    default: cn("bg-card text-primary", standardShadow),
     outline: "bg-transparent border border-border text-muted-foreground hover:border-primary/50",
     dark: "bg-secondary text-primary border border-border/40",
     ghost: "bg-transparent text-muted-foreground hover:bg-secondary/50 hover:text-foreground",

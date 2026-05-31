@@ -28,8 +28,8 @@ export const MyCard = ({
       className={cn(
         "overflow-hidden border p-4 transition-all duration-150 md:p-8",
         "rounded-[2.5rem]",
-        "shadow-[0_0_0.25em_rgba(67,71,85,0.27),0_0.25em_1em_rgba(90,125,188,0.05)]",
-        "hover:shadow-[0_0_0.4em_rgba(67,71,85,0.3),0_0.3em_1.2em_rgba(90,125,188,0.08)]",
+        "shadow-[0_0_0.25em_var(--border),0_0.25em_1em_var(--border)]",
+        "hover:shadow-[0_0_0.4em_var(--border),0_0.3em_1.2em_var(--border)]",
         "hover:border-border/60 hover:-translate-y-0.5",
         "active:translate-y-0.5",
         variants[variant],

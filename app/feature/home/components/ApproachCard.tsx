@@ -25,14 +25,14 @@ export const ApproachCard = ({ area }: ApproachCardProps) => {
             className="h-20 w-20 rounded-[2rem]"
             iconClassName="w-10 h-10 stroke-[1.5px]"
           />
-          <div className="border-border text-muted-foreground absolute -top-2 -left-2 flex h-7 w-7 items-center justify-center rounded-full border bg-white font-mono text-[9px] font-bold shadow-sm">
+          <div className="border-border text-muted-foreground absolute -top-2 -left-2 flex h-7 w-7 items-center justify-center rounded-full border text-[9px] shadow-sm">
             {area.id}
           </div>
         </div>
 
         <div className="flex-grow space-y-2 text-center md:text-left">
           <div className="flex items-center justify-center gap-3 md:justify-start">
-            <span className={cn("text-[10px] font-bold tracking-[.3em] opacity-80")}>
+            <span className={cn("text-[10px] tracking-[.3em] opacity-80")}>
               {area.tag.replace("STEP", "Focus")}
             </span>
           </div>

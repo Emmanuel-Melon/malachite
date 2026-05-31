@@ -40,7 +40,7 @@ export const PaginationControls = ({
       >
         <ArrowRight className="text-muted-foreground h-4 w-4" />
       </MyButton>
-      <span className="text-muted-foreground/60 ml-2 font-mono text-[10px] tracking-widest">
+      <span className="text-muted-foreground/60 ml-2 text-[10px] tracking-widest">
         {String(page + 1).padStart(2, "0")} / {String(totalPages).padStart(2, "0")}
       </span>
     </div>

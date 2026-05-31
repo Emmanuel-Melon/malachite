@@ -1,29 +1,22 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Serif_Text, Playfair_Display } from "next/font/google";
+import { Cinzel, Roboto } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/molecules/layout/footer";
 import { Navbar } from "@/components/molecules/layout/navbar";
 import { getSiteData } from "@/lib/data/site";
 import "./globals.css";
 
-const playfair = Playfair_Display({
+const cinzel = Cinzel({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  variable: "--font-cinzel",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const roboto = Roboto({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const dmSerif = DM_Serif_Text({
-  subsets: ["latin"],
-  variable: "--font-dm-serif",
-  weight: "400",
+  variable: "--font-roboto",
+  weight: ["300", "400", "500", "700"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -55,9 +48,7 @@ export default async function RootLayout({
   const site = await getSiteData();
   return (
     <html lang="en">
-      <body
-        className={`${playfair.variable} ${dmSans.variable} ${dmSerif.variable} bg-background font-sans antialiased`}
-      >
+      <body className={`${cinzel.variable} ${roboto.variable} bg-background font-sans antialiased`}>
         <Navbar navLinks={site.navLinks} phoneNumber={site.phoneNumber} />
         <main className="py-12 pt-32 md:pt-40">
           <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">{children}</div>

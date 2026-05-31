@@ -33,7 +33,7 @@ export const GradientHeading = <T extends HeadingElement = "h2">({
       {...props}
     >
       {title} <br />
-      <span className="from-primary to-primary animate-gradient-x bg-gradient-to-r via-orange-500 bg-[length:200%_auto] bg-clip-text text-transparent">
+      <span className="from-primary to-primary animate-gradient-x bg-gradient-to-r via-[rgba(219,157,0,0.8)] bg-[length:200%_auto] bg-clip-text text-transparent">
         {gradientText}
       </span>
     </Component>

@@ -28,9 +28,7 @@ export const Separator = ({ className, label, showDots = true }: SeparatorProps)
         )}
 
         {label && (
-          <span className="text-muted-foreground font-mono text-[10px] tracking-[0.5em]">
-            {label}
-          </span>
+          <span className="text-muted-foreground text-[10px] tracking-[0.5em]">{label}</span>
         )}
 
         {showDots && (

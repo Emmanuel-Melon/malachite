@@ -48,7 +48,7 @@ export const Hero = ({ subtitles, description, founder, gridItems, socials }: He
     <section className="relative overflow-hidden font-sans">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="bg-primary/5 absolute top-0 right-0 h-[40%] w-[40%] rounded-full blur-[120px]" />
-        <div className="absolute top-1/2 left-[-10%] h-[30%] w-[30%] rounded-full bg-blue-500/5 blur-[120px]" />
+        <div className="bg-accent/5 absolute top-1/2 left-[-10%] h-[30%] w-[30%] rounded-full blur-[120px]" />
       </div>
 
       <div className="relative z-10 container mx-auto px-4">
@@ -121,9 +121,7 @@ export const Hero = ({ subtitles, description, founder, gridItems, socials }: He
                     iconClassName="text-background"
                   />
                   <div>
-                    <p className="text-[10px] font-bold tracking-[.3em] opacity-60">
-                      {founder.founderRole}
-                    </p>
+                    <p className="text-[10px] tracking-[.3em] opacity-60">{founder.founderRole}</p>
                     <p className="text-lg tracking-tight">{founder.founderName}</p>
                   </div>
                 </div>

@@ -1,7 +1,6 @@
 import { Statement } from "@/components/atoms/Statement";
 import { SectionHeader } from "@/components/molecules/SectionHeader";
 import { Section } from "@/components/organisms/section";
-// Imported standard layout component
 import type { TeamMember } from "../about.types";
 import { TeamMemberItem } from "./TeamMember";
 

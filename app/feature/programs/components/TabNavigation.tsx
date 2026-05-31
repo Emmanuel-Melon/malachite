@@ -35,7 +35,7 @@ export const TabNavigation = <T extends string>({
                 >
                   <span
                     className={cn(
-                      "font-mono text-[10px] transition-colors duration-500",
+                      "text-[10px] transition-colors duration-500",
                       isActive
                         ? "text-background/50"
                         : "text-muted-foreground/40 group-hover:text-background/50",

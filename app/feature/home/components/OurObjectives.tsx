@@ -47,7 +47,7 @@ export const OurObjectives = async () => {
           <div className="flex items-center gap-8">
             <MyButton size="lg" asChild>
               <Link href="/about">
-                learn more about us
+                Learn More
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </MyButton>

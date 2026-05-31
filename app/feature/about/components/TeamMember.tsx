@@ -18,7 +18,7 @@ export const TeamMemberItem = ({ member }: TeamMemberProps) => (
 
       <div className="from-primary/60 via-primary/20 absolute inset-0 flex flex-col justify-end bg-gradient-to-t to-transparent p-8">
         <div className="translate-y-4 transition-transform duration-500 group-hover:translate-y-0">
-          <p className="mb-2 text-[10px] font-bold tracking-[.5em] text-white/90">{member.role}</p>
+          <p className="mb-2 text-[10px] tracking-[.5em] text-white/90">{member.role}</p>
           <h3 className="text-2xl leading-tight font-semibold tracking-tighter text-white">
             {member.name}
           </h3>

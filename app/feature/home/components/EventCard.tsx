@@ -18,7 +18,7 @@ export const EventCard = ({ event }: EventCardProps) => {
             <span className="text-muted-foreground tracking-wider">{event.month}</span>
           </div>
 
-          <h3 className="text-foreground text-xl font-medium tracking-tighter transition-colors duration-300 group-hover:text-orange-500 md:text-2xl">
+          <h3 className="text-foreground group-hover:text-primary text-xl font-medium tracking-tighter transition-colors duration-300 md:text-2xl">
             {event.title}
           </h3>
 
@@ -34,8 +34,8 @@ export const EventCard = ({ event }: EventCardProps) => {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 transition-colors duration-300 group-hover:bg-orange-500/20">
-              <MapPin className="h-3.5 w-3.5 text-orange-600" />
+            <div className="bg-accent group-hover:bg-accent/80 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl transition-colors duration-300">
+              <MapPin className="text-accent-foreground h-3.5 w-3.5" />
             </div>
             <p className="text-muted-foreground text-sm tracking-tight">{event.location}</p>
           </div>

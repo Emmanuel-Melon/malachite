@@ -2,7 +2,7 @@ import type { CultureItemData, FounderData, TeamMember } from "../about.types";
 
 const founderData: FounderData = {
   headerLabel: "Our Story",
-  headerTitle: "pioneering the future of",
+  headerTitle: "Pioneering the future of",
   headerGradientText: "mental wellness.",
   statementLabel: "The Vision",
   statementText:

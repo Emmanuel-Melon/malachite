@@ -40,7 +40,7 @@ export const ValuesSection = async () => {
           <div className="order-1 space-y-12 lg:order-2 lg:col-span-7">
             <SectionHeader
               label="Our Philosophy"
-              title="a holistic approach to"
+              title="A holistic approach to"
               gradientText="human potential."
             />
 
