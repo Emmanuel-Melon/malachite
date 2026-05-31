@@ -7,7 +7,9 @@ import {
   ArrowRight,
   Phone,
   MapPin,
-  type LucideIcon
+  type LucideIcon,
+  MessageSquare,
+  Youtube
 } from "lucide-react";
 import { MyButton } from "@/components/atoms/button";
 import { IconContainer } from "@/components/atoms/IconContainer";
@@ -18,33 +20,51 @@ import { Statement } from "./molecules/Statement";
 
 interface ContactItem {
   icon: LucideIcon;
-  label: string;
   value: string;
 }
 
 const contactData: ContactItem[] = [
   {
     icon: MapPin,
-    label: "visit us",
     value: "672 Wamala Rd, Kampala"
   },
   {
     icon: Phone,
-    label: "call us",
     value: "+256757356691"
   }
 ];
 
 const socials = [
-  { href: "Facebook", icon: Facebook },
-  { href: "Twitter", icon: Twitter },
-  { href: "Instagram", icon: Instagram },
-  { href: "LinkedIn", icon: Linkedin }
+  {
+    href: "https://wa.me/256703349394",
+    icon: MessageSquare,
+    label: "256 703 349394"
+  },
+  {
+    href: "https://x.com/malachitecenter",
+    icon: Twitter,
+    label: "malachitecenter"
+  },
+  {
+    href: "https://instagram.com/malachitecenter",
+    icon: Instagram,
+    label: "malachitecenter"
+  },
+  {
+    href: "https://linkedin.com/company/malachite-center",
+    icon: Linkedin,
+    label: "Malachite Center"
+  },
+  {
+    href: "https://youtube.com/@MalachiteMediaUg",
+    icon: Youtube,
+    label: "@MalachiteMediaUg"
+  }
 ];
 
 const footerNavigation = [
   {
-    title: "company",
+    title: "Company",
     links: [
       { label: "about us", href: "/about" },
       { label: "contact", href: "/contact" },
@@ -63,13 +83,7 @@ export const ContactInfo = () => {
             className="w-12 h-12 shrink-0 rounded-xl"
             iconClassName="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors"
           />
-          <div className="space-y-0.5">
-            <div className="inline-flex items-center gap-2">
-              <Indicator activeDot="right" variant="secondary" />
-              <span className="text-[10px] tracking-[.4em] uppercase font-bold text-muted-foreground/60">
-                {item.label}
-              </span>
-            </div>
+          <div>
             <h2 className="text-lg tracking-tighter leading-tight text-muted-foreground transition-colors group-hover:text-foreground">
               {item.value}
             </h2>
@@ -89,10 +103,10 @@ export const Footer = () => {
           <div className="lg:col-span-6 space-y-10">
             <div className="space-y-6">
               <Link href="/" className="inline-block group">
-                <h2 className="text-4xl tracking-tighter leading-[0.9] lowercase">
-                  malachite <br />
+                <h2 className="text-4xl tracking-tighter leading-[0.9]">
+                  Malachite Center <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-600 italic">
-                    medical centre
+                    for Mental Health
                   </span>
                 </h2>
               </Link>
@@ -121,8 +135,7 @@ export const Footer = () => {
             {footerNavigation.map((group) => (
               <div key={group.title} className="space-y-8">
                 <div className="inline-flex items-center gap-3">
-                  <Indicator variant="secondary" activeDot="right" />
-                  <h3 className="tracking-[.4em] uppercase text-xs font-bold">
+                  <h3 className="tracking-[.4em] text-xs font-bold">
                     {group.title}
                   </h3>
                 </div>
@@ -131,7 +144,7 @@ export const Footer = () => {
                     <li key={link.label}>
                       <Link
                         href={link.href}
-                        className="group flex items-center gap-0 hover:gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 lowercase text-lg italic"
+                        className="group flex items-center gap-0 hover:gap-3 text-muted-foreground hover:text-foreground transition-all duration-300 text-lg italic"
                       >
                         <ArrowRight className="w-0 group-hover:w-5 h-5 opacity-0 group-hover:opacity-100 transition-all text-primary" />
                         {link.label}

@@ -82,9 +82,9 @@ export const OurObjectives = () => {
 
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
             <OverlappingImages
-              backImage="/image.webp"
+              backImage="/woman.jpg"
               backAlt="Our Mission"
-              frontImage="/image1.png"
+              frontImage="/couple.jpg"
               frontAlt="Making Impact"
             />
           </div>

@@ -21,7 +21,6 @@ export const ImageContainer = ({
         className
       )}
     >
-      {/* The inner wrapper ensures the content (like Images) doesn't bleed over the thick borders */}
       <div className="relative w-full h-full rounded-[3.2rem] overflow-hidden">
         {children}
       </div>

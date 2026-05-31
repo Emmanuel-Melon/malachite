@@ -28,12 +28,12 @@ const dmSerif = DM_Serif_Text({
 })
 
 export const metadata: Metadata = {
-  title: 'Malachite Medical Centre | Mental Health Services',
-  description: 'Malachite Medical Centre provides comprehensive mental health services including workplace wellness programs, school-based services, clinical innovation, and evidence-based treatment approaches in Uganda.',
+  title: 'Malachite Center for Mental Health',
+  description: 'Malachite Center for Mental Health provides comprehensive mental health services including workplace wellness programs, school-based services, clinical innovation, and evidence-based treatment approaches in Uganda.',
   keywords: ['mental health', 'counseling', 'therapy', 'workplace wellness', 'school outreach', 'clinical services', 'uganda', 'kampala'],
-  authors: [{ name: 'Malachite Medical Centre' }],
-  creator: 'Malachite Medical Centre',
-  publisher: 'Malachite Medical Centre',
+  authors: [{ name: 'Malachite Center for Mental Health' }],
+  creator: 'Malachite Center for Mental Health',
+  publisher: 'Malachite Center for Mental Health',
 }
 
 export default function RootLayout({

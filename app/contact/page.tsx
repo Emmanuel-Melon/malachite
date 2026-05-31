@@ -1,8 +1,7 @@
 import { Mail, Phone, MapPin } from "lucide-react";
-import { ContactHeader } from "@/components/contact/ContactHeader";
+import { PageHeader } from "@/components/molecules/PageHeader";
 import { ContactInfoCard } from "@/components/contact/ContactInfoCard";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { Separator } from "@/components/molecules/separator";
 
 const CONTACT_METHODS = [
   {
@@ -28,13 +27,18 @@ const CONTACT_METHODS = [
 export default function ContactPage() {
   return (
     <div className="space-y-24 md:space-y-0">
-      <ContactHeader />
+      <PageHeader
+        label="Get in Touch"
+        title="Start your journey to"
+        gradientText="restoration."
+        statement="Our specialist team is ready to provide the support and guidance you need. Reach out today for a confidential consultation."
+      />
       <section>
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-start">
-          
+
           <div className="lg:col-span-5 space-y-8">
             {CONTACT_METHODS.map((method, index) => (
-              <ContactInfoCard 
+              <ContactInfoCard
                 key={index}
                 icon={method.icon}
                 title={method.title}

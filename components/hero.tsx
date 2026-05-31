@@ -1,5 +1,9 @@
 "use client";
-import { Users, Twitter, Instagram, Linkedin } from "lucide-react";
+import {
+  Users, Twitter, Instagram, Linkedin, Youtube,
+  MessageSquareText,
+  MessageSquare
+} from "lucide-react";
 import { MyButton } from "@/components/atoms/button";
 import Image from "next/image";
 import { ImageContainer } from "@/components/molecules/ImageContainer";
@@ -8,11 +12,29 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { MyCard } from "./atoms/card";
 import { IconContainer } from "./atoms/IconContainer";
+import { HeroGrid } from "./HeroGrid";
 
 const socials = [
-  { href: "Twitter", icon: Twitter },
-  { href: "Instagram", icon: Instagram },
-  { href: "LinkedIn", icon: Linkedin }
+  {
+    href: "https://wa.me/256703349394",
+    icon: MessageSquare
+  },
+  {
+    href: "https://x.com/malachitecenter",
+    icon: Twitter
+  },
+  {
+    href: "https://instagram.com/malachitecenter",
+    icon: Instagram
+  },
+  {
+    href: "https://linkedin.com/company/malachite-center",
+    icon: Linkedin
+  },
+  {
+    href: "https://youtube.com/@MalachiteMediaUg",
+    icon: Youtube
+  }
 ];
 
 export const Hero = () => {
@@ -79,9 +101,15 @@ export const Hero = () => {
                 </div>
 
                 <div className="flex items-center gap-4 border-l border-border/60 pl-8 hidden md:flex">
-                  {socials.map((social) => (
-                    <SocialLink key={social.href} href={social.href} icon={social.icon} />
-                  ))}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {socials.map((social, index) => (
+                      <SocialLink
+                        key={index}
+                        href={social.href}
+                        icon={social.icon}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -109,7 +137,7 @@ export const Hero = () => {
                       Founder
                     </p>
                     <p className="tracking-tight text-lg">
-                      Christina Angelo Ntulo
+                      Christina Angela Ntulo
                     </p>
                   </div>
                 </div>
@@ -125,45 +153,3 @@ export const Hero = () => {
     </section>
   );
 };
-
-function HeroGrid() {
-  return (
-    <div className="w-full grid grid-cols-12 gap-8 items-center">
-      <div className="col-span-4">
-        <div className="group relative aspect-[3/4] z-10 transition-all duration-500 -rotate-3 hover:rotate-0 hover:scale-[1.02]">
-          <ImageContainer className="w-full h-full rounded-[3rem]">
-            <Image src="/image.webp" className="w-full h-full object-cover group-hover:grayscale-0 transition-all duration-700" alt="clinical" fill />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity" />
-            <div className="absolute bottom-6 left-6">
-              <p className="text-white text-[10px] tracking-widest uppercase">clinical</p>
-            </div>
-          </ImageContainer>
-        </div>
-      </div>
-
-      <div className="col-span-4">
-        <div className="relative aspect-square z-20 transition-all duration-500 rotate-3 hover:rotate-0">
-          <ImageContainer className="w-full h-full rounded-[3rem] border-[12px] border-white shadow-2xl">
-            <Image src="/image1.png" className="w-full h-full object-cover" alt="excellence" fill />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-40 transition-opacity" />
-            <div className="absolute bottom-8 left-8">
-              <p className="text-white text-[10px] tracking-widest uppercase">excellence</p>
-            </div>
-          </ImageContainer>
-        </div>
-      </div>
-
-      <div className="col-span-4">
-        <div className="group relative aspect-[3/4] z-10 transition-all duration-500 -rotate-3 hover:rotate-0 hover:scale-[1.02]">
-          <ImageContainer className="w-full h-full rounded-[3rem]">
-            <Image src="/image2.jpg" className="w-full h-full object-cover group-hover:grayscale-0 transition-all duration-700" alt="community" fill />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity" />
-            <div className="absolute bottom-6 left-6">
-              <p className="text-white text-[10px] tracking-widest uppercase">community</p>
-            </div>
-          </ImageContainer>
-        </div>
-      </div>
-    </div>
-  )
-}

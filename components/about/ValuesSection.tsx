@@ -28,7 +28,7 @@ export const ValuesSection = () => {
 
               <ImageContainer className="aspect-square w-full max-w-md mx-auto border-[16px] border-white shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)]">
                 <Image
-                  src="/image2.jpg"
+                  src="/family.jpg"
                   alt="our philosophy"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -39,7 +39,7 @@ export const ValuesSection = () => {
 
           <div className="lg:col-span-7 space-y-12 order-1 lg:order-2">
             <SectionHeader
-              label="our philosophy"
+              label="Our Philosophy"
               title="a holistic approach to"
               gradientText="human potential."
             />

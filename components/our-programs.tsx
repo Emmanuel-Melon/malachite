@@ -28,7 +28,7 @@ export const OurPrograms = () => {
 
           <div className="w-full lg:w-1/2 order-2 lg:order-1 space-y-10">
             <SectionHeader
-              label="OUR PROGRAMS"
+              label="Malachite's Programs"
               title="Support for every"
               gradientText="environment."
             />
@@ -56,9 +56,9 @@ export const OurPrograms = () => {
 
           <div className="w-full lg:w-1/2 order-1 lg:order-2">
             <OverlappingImages
-              backImage="/image3.webp"
+              backImage="/school.jpg"
               backAlt="Community Support"
-              frontImage="/image4.jpeg"
+              frontImage="/corporate.jpg"
               frontAlt="Mental Health Coaching"
               className="h-[500px] md:h-[700px]"
             />

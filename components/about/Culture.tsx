@@ -65,7 +65,7 @@ export const CorporateCulture = () => {
           </div>
           <div className="w-full lg:w-1/2">
             <OverlappingImages
-              backImage="/image2.jpg"
+              backImage="/couple.jpg"
               backAlt="Our Culture"
               frontImage="/image.webp"
               frontAlt="Team Collaboration"

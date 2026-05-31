@@ -19,6 +19,28 @@ export const PROGRAMS_DATA = {
         image: "/workplace-wellness.jpg",
         description: "Decent work is good for mental health. According to the World Health Organization (WHO), poor working environments—including discrimination and inequality, excessive workloads, low job control, and job insecurity—pose a risk to mental health.",
         quote: "WHO adds that globally, an estimated 12 billion working days are lost every year to depression and anxiety for US$ 1 trillion per year in lost productivity.",
+        partners: [
+            { name: "Stanbic Group" },
+            { name: "ABSA" },
+            { name: "NCBA" },
+            { name: "KCB" },
+            { name: "IDI" },
+            { name: "Epicenter" },
+            { name: "I&M Bank" },
+            { name: "KPMG" },
+            { name: "Baylor" },
+            { name: "CFAO" },
+            { name: "Total" },
+            { name: "DTB" },
+            { name: "Electricity Regulatory Authority" },
+            { name: "MKOPA" },
+            { name: "MSF - SUKA" },
+            { name: "C-CARE" },
+            { name: "Eagle Air" },
+            { name: "Future Options" },
+            { name: "NWSC" },
+            { name: "NSSF" }
+        ],
         sections: [
             {
                 id: "A",
@@ -88,6 +110,11 @@ export const PROGRAMS_DATA = {
         image: "/school-wellness.jpg",
         description: "According to the World Health Organization, one in seven 10-19-year-olds experiences a mental disorder, accounting for 13% of the global burden of disease in this age group globally.",
         quote: "Investment in adolescent mental health has far-reaching results for the future of any community.",
+        partners: [
+            { name: "Pine International School" },
+            { name: "Peak Primary Schools" },
+            { name: "LIDRI International Schools" }
+        ],
         sections: [
             {
                 id: "A",
@@ -140,6 +167,10 @@ export const PROGRAMS_DATA = {
         image: "/group-therapy.jpg",
         description: "Tailored treatment for depression, anxiety, Post Traumatic Stress Disorder, and other mental health conditions, provided in person, through digital platforms, or phone conversations.",
         quote: "We work with the client's health service provider and referral networks to ensure clients are safe and treated with dignity and respect.",
+        partners: [
+            { name: "Intentional Living" },
+            { name: "Virtuous Woman Entebbe" }
+        ],
         sections: [
             {
                 id: "1",
@@ -195,12 +226,13 @@ export const PROGRAMS_DATA = {
         ]
     },
     awareness: {
-        label: "OUTREACH",
+        label: "Awareness",
         title: "Raising Awareness",
         gradientText: "& Education.",
         image: "/awareness.jpg",
         description: "The Malachite Center utilizes social media and digital platforms to raise awareness about mental health, conducting monthly education series lasting between 7-31 days.",
         quote: "We believe in the collective synergy to build a broader audience, leading to a wider catchment of viewership and listenership.",
+        partners: [],
         sections: [
             {
                 id: "1",

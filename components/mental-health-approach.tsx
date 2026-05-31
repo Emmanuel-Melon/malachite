@@ -43,7 +43,7 @@ export const MentalHealthApproach = () => {
 
           <div className="lg:col-span-5 space-y-10">
             <SectionHeader
-              label="OUR APPROACH"
+              label="Our Approach"
               title="Three crucial"
               gradientText="areas of focus."
             />
@@ -55,7 +55,7 @@ export const MentalHealthApproach = () => {
               />
 
               <div className="space-y-4 pt-4">
-                <div className="flex items-center gap-4 text-sm font-medium text-foreground/80 uppercase tracking-widest">
+                <div className="flex items-center gap-4 text-sm font-medium text-foreground/80 tracking-widest">
                   <div className="flex -space-x-2">
                     <div className="w-8 h-8 rounded-full bg-blue-500/20 border-2 border-background flex items-center justify-center"><Search className="w-4 h-4 text-blue-500" /></div>
                     <div className="w-8 h-8 rounded-full bg-amber-500/20 border-2 border-background flex items-center justify-center"><Crown className="w-4 h-4 text-amber-500" /></div>

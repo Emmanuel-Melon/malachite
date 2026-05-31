@@ -15,7 +15,7 @@ export const TabNavigation = <T extends string>({
 }: TabNavigationProps<T>) => {
   return (
     <div className="w-full">
-      <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-8 lg:gap-16 border-b border-border/40 pb-10">
+      <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-between gap-8 lg:gap-16">
         
         <div className="relative -mx-4 px-4 lg:mx-0 lg:px-0 lg:max-w-3xl">
           <div className="flex overflow-x-auto lg:flex-wrap lg:justify-start gap-3 md:gap-4 pt-2 pb-2 no-scrollbar items-center">
@@ -43,7 +43,7 @@ export const TabNavigation = <T extends string>({
                   )}>
                     {displayNum}
                   </span>
-                  <span className="text-xs font-bold tracking-widest uppercase">
+                  <span className="tracking-wider">
                     {key.replace('_', ' ')}
                   </span>
                 </MyButton>

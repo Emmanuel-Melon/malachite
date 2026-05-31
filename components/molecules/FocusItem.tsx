@@ -1,5 +1,4 @@
 import type { LucideIcon } from "lucide-react";
-import { Indicator } from "@/components/atoms/Indicator";
 import { IconContainer } from "@/components/atoms/IconContainer";
 
 type FocusItemProps = {
@@ -19,12 +18,11 @@ export const FocusItem = ({ icon, title, description }: FocusItemProps) => {
             />
             <div className="space-y-3 w-full">
                 <div className="flex items-center gap-3">
-                    <Indicator className="opacity-60" variant='secondary' activeDot="right" />
-                    <h3 className="text-xl tracking-tight font-medium lowercase italic">
+                    <h3 className="text-xl tracking-tight font-medium">
                         {title}
                     </h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed text-lg lowercase">
+                <p className="text-muted-foreground leading-relaxed text-lg">
                     {description}
                 </p>
             </div>
