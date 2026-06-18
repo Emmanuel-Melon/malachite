@@ -48,7 +48,7 @@ export const Navbar = ({ navLinks, phoneNumber }: NavbarProps) => {
               <div className="animate-in fade-in zoom-in-95 relative h-10 w-10 overflow-hidden rounded-xl duration-300">
                 <ImageContainer className="h-full w-full">
                   <Image
-                    src="/logo.jpeg"
+                    src="/logo.png"
                     alt="Malachite Medical Centre"
                     fill
                     priority

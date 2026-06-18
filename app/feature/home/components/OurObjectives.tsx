@@ -56,9 +56,9 @@ export const OurObjectives = async () => {
 
         <div className="order-1 w-full lg:order-2 lg:w-1/2">
           <OverlappingImages
-            backImage="/woman.jpg"
+            backImage="/family.jpg"
             backAlt="Our Mission"
-            frontImage="/couple.jpg"
+            frontImage="/painter.jpg"
             frontAlt="Making Impact"
           />
         </div>

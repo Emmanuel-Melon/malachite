@@ -187,7 +187,7 @@ const heroGridItems: HeroGridItem[] = [
       "from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-90",
     label: "clinical",
     rotate: "-rotate-3",
-    src: "/father.jpg",
+    src: "/studio.jpg",
     zIndex: "z-10",
   },
   {
@@ -200,7 +200,7 @@ const heroGridItems: HeroGridItem[] = [
     gradientOpacity: "from-black/80 via-transparent to-transparent opacity-40",
     label: "excellence",
     rotate: "rotate-3",
-    src: "/family.jpg",
+    src: "/children.jpg",
     zIndex: "z-20",
   },
   {
@@ -214,7 +214,7 @@ const heroGridItems: HeroGridItem[] = [
       "from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-90",
     label: "community",
     rotate: "-rotate-3",
-    src: "/child.jpg",
+    src: "/med.jpg",
     zIndex: "z-10",
   },
 ];

@@ -28,7 +28,7 @@ export const ValuesSection = async () => {
 
               <ImageContainer className="mx-auto aspect-square w-full max-w-md border-[16px] border-white shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)]">
                 <Image
-                  src="/family.jpg"
+                  src="/career.jpg"
                   alt="our philosophy"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"

@@ -39,7 +39,7 @@ export const CorporateCulture = ({ cultureItems }: CorporateCultureProps) => {
           <OverlappingImages
             backImage="/package.jpg"
             backAlt="Our Culture"
-            frontImage="/women.jpg"
+            frontImage="/engineer.jpg"
             frontAlt="Team Collaboration"
             className="h-[500px] md:h-[700px]"
           />

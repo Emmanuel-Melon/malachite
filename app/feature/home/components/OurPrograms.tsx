@@ -50,10 +50,10 @@ export const OurPrograms = async () => {
         <div className="order-1 w-full lg:order-2 lg:w-1/2">
           <OverlappingImages
             backAlt="Community Support"
-            backImage="/school.jpg"
+            backImage="/corporate.jpg"
             className="h-[500px] md:h-[700px]"
             frontAlt="Mental Health Coaching"
-            frontImage="/corporate.jpg"
+            frontImage="/teacher.jpg"
           />
         </div>
       </div>
