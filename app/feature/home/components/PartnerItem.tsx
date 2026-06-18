@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Partner } from "@/lib/data/shared.types";
 
 interface PartnerItemProps {
@@ -6,10 +7,22 @@ interface PartnerItemProps {
 
 export const PartnerItem = ({ partner }: PartnerItemProps) => {
   return (
-    <div className="group border-border/30 hover:bg-accent/30 flex h-auto min-h-24 items-center justify-center border-t border-l bg-transparent p-4 transition-colors duration-300">
-      <span className="from-foreground via-primary to-foreground animate-gradient-x bg-gradient-to-r bg-[length:200%_auto] bg-clip-text text-center text-sm leading-snug font-medium tracking-wide text-transparent transition-all duration-300 group-hover:scale-102 sm:text-base md:text-lg">
-        {partner.name}
-      </span>
+    <div className="group flex h-24 items-center justify-center p-6 transition-all duration-300">
+      {partner.imagePath ? (
+        <div className="relative h-full w-full opacity-60 transition-all duration-500 group-hover:opacity-100">
+          <Image
+            src={partner.imagePath}
+            alt={partner.name}
+            fill
+            className="object-contain"
+            sizes="(max-width: 768px) 100px, 150px"
+          />
+        </div>
+      ) : (
+        <span className="text-sm font-medium text-muted-foreground transition-colors group-hover:text-foreground">
+          {partner.name}
+        </span>
+      )}
     </div>
   );
 };
