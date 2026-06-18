@@ -7,19 +7,22 @@ interface PartnerItemProps {
 
 export const PartnerItem = ({ partner }: PartnerItemProps) => {
   return (
-    <div className="group flex h-24 items-center justify-center p-6 transition-all duration-300">
+    // Increased height (h-32) and added a subtle hover-lift effect
+    <div className="group flex h-32 items-center justify-center p-8 transition-all duration-300 hover:-translate-y-1">
       {partner.imagePath ? (
-        <div className="relative h-full w-full opacity-60 transition-all duration-500 group-hover:opacity-100">
+        <div className="relative h-full w-full opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:drop-shadow-lg">
           <Image
             src={partner.imagePath}
             alt={partner.name}
             fill
             className="object-contain"
-            sizes="(max-width: 768px) 100px, 150px"
+            // Increased size hints to help the browser prioritize higher resolution rendering
+            sizes="(max-width: 768px) 150px, 250px"
           />
         </div>
       ) : (
-        <span className="text-sm font-medium text-muted-foreground transition-colors group-hover:text-foreground">
+        // Made text larger and more prominent for better visual balance
+        <span className="text-foreground/70 group-hover:text-primary text-base font-semibold transition-colors">
           {partner.name}
         </span>
       )}

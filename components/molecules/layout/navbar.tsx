@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { ArrowRight, Menu, X } from "lucide-react";
 import { MyButton } from "@/components/atoms/button";
 import type { NavLink } from "@/lib/data/shared.types";
 import { cn } from "@/lib/utils";
@@ -15,21 +15,20 @@ export const Navbar = ({ navLinks }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/40">
+    <header className="bg-background/80 border-border/40 fixed top-0 z-50 w-full border-b backdrop-blur-md">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-6 py-4 md:px-10">
-        
         {/* Logo - Larger and clearer */}
         <Link href="/" className="relative h-10 w-48 transition-transform hover:opacity-90">
           <Image src="/logo.png" alt="Company Logo" fill className="object-contain" priority />
         </Link>
 
         {/* Desktop Links - Using your design language */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
+            <Link
+              key={link.name}
               href={link.href}
-              className="text-sm font-medium tracking-wide text-foreground/80 hover:text-primary transition-colors"
+              className="text-foreground/80 hover:text-primary text-sm font-medium tracking-wide transition-colors"
             >
               {link.name}
             </Link>
@@ -46,19 +45,23 @@ export const Navbar = ({ navLinks }: NavbarProps) => {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="lg:hidden p-2" onClick={() => setIsOpen(true)}>
-          <Menu className="h-8 w-8 text-foreground" />
+        <button className="p-2 lg:hidden" onClick={() => setIsOpen(true)}>
+          <Menu className="text-foreground h-8 w-8" />
         </button>
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={cn(
-        "fixed inset-0 z-[100] bg-background p-10 transition-transform duration-300 lg:hidden",
-        isOpen ? "translate-x-0" : "translate-x-full"
-      )}>
-        <div className="flex justify-between items-center mb-16">
+      <div
+        className={cn(
+          "bg-background fixed inset-0 z-[100] p-10 transition-transform duration-300 lg:hidden",
+          isOpen ? "translate-x-0" : "translate-x-full",
+        )}
+      >
+        <div className="mb-16 flex items-center justify-between">
           <span className="text-lg font-bold">Menu</span>
-          <button onClick={() => setIsOpen(false)}><X className="h-8 w-8" /></button>
+          <button onClick={() => setIsOpen(false)}>
+            <X className="h-8 w-8" />
+          </button>
         </div>
         <div className="flex flex-col gap-8 text-2xl font-medium">
           {navLinks.map((link) => (
