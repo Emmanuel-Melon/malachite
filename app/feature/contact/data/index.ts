@@ -1,34 +1,20 @@
-import { getSiteData } from "@/lib/data/site";
-import type { ContactMethodData } from "../contact.types";
+import { sanityClient } from "@/lib/sanity";
+import type { ContactMethodData, ContactPageHeaderData } from "../contact.types";
+import { contactPageQuery } from "./contact.queries";
 
-export async function getContactMethods(): Promise<ContactMethodData[]> {
-  const siteData = await getSiteData();
+export interface ContactPageData {
+  contactMethods: ContactMethodData[];
+  pageHeader: ContactPageHeaderData;
+}
 
-  const address =
-    siteData.contact.find((c) => c.icon === "map-pin")?.value || "672 Wamala Rd, Kampala";
-  const phone = siteData.phoneNumber || "+256757356691";
+export async function getContactPageData(): Promise<ContactPageData> {
+  const data = await sanityClient.fetch<{
+    contactMethods: ContactMethodData[];
+    pageHeader: ContactPageHeaderData;
+  }>(contactPageQuery);
 
-  return [
-    {
-      id: "contact-method-location",
-      iconName: "map-pin",
-      title: "Our Location",
-      detail: address,
-      subDetail: "Available for in-person consultations",
-    },
-    {
-      id: "contact-method-email",
-      iconName: "mail",
-      title: "Email Us",
-      detail: "care@malachitemedical.com",
-      subDetail: "We respond within 24 business hours",
-    },
-    {
-      id: "contact-method-phone",
-      iconName: "phone",
-      title: "Call Support",
-      detail: phone,
-      subDetail: "Mon - Fri: 8am to 6pm",
-    },
-  ];
+  return {
+    contactMethods: data.contactMethods,
+    pageHeader: data.pageHeader,
+  };
 }

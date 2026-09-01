@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getHeroData, getHeroGridItems, getTestimonials } from "@/app/feature/home/data";
+import { getEvents, getHeroData, getHeroGridItems, getTestimonials } from "@/app/feature/home/data";
 import { HomeView } from "@/app/feature/home/views/HomeView";
 import { getPartners } from "@/lib/data/partners";
 import { getSiteData } from "@/lib/data/site";
@@ -11,12 +11,13 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [hero, site, partners, testimonials, gridItems] = await Promise.all([
+  const [hero, site, partners, testimonials, gridItems, events] = await Promise.all([
     getHeroData(),
     getSiteData(),
     getPartners(),
     getTestimonials(),
     getHeroGridItems(),
+    getEvents(),
   ]);
 
   return (
@@ -26,6 +27,7 @@ export default async function HomePage() {
       site={site}
       testimonials={testimonials}
       gridItems={gridItems}
+      events={events}
     />
   );
 }

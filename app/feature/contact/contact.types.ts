@@ -6,6 +6,14 @@ export interface ContactMethodData {
   subDetail: string;
 }
 
+export interface ContactPageHeaderData {
+  label: string;
+  title: string;
+  gradientText: string;
+  statement: string;
+}
+
 export interface ContactViewProps {
   contactMethods: ContactMethodData[];
+  pageHeader?: ContactPageHeaderData;
 }

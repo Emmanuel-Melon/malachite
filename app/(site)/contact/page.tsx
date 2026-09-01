@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getContactMethods } from "@/app/feature/contact/data";
+import { getContactPageData } from "@/app/feature/contact/data";
 import { ContactView } from "@/app/feature/contact/views/ContactView";
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactPage() {
-  const contactMethods = await getContactMethods();
+  const { contactMethods, pageHeader } = await getContactPageData();
 
-  return <ContactView contactMethods={contactMethods} />;
+  return <ContactView contactMethods={contactMethods} pageHeader={pageHeader} />;
 }

@@ -9,7 +9,7 @@ import { Testimonials } from "../components/Testimoials";
 import { UpcomingEvents } from "../components/UpcomingEvents";
 import { Hero } from "../components/hero";
 import { Partners } from "../components/partners";
-import type { HeroData, HeroGridItem, Testimonial } from "../home.types";
+import type { Event, HeroData, HeroGridItem, Testimonial } from "../home.types";
 
 interface HomeViewProps {
   hero: HeroData;
@@ -17,9 +17,17 @@ interface HomeViewProps {
   site: SiteData;
   testimonials: Testimonial[];
   gridItems: HeroGridItem[];
+  events: Event[];
 }
 
-export const HomeView = ({ hero, partners, site, testimonials, gridItems }: HomeViewProps) => {
+export const HomeView = ({
+  hero,
+  partners,
+  site,
+  testimonials,
+  gridItems,
+  events,
+}: HomeViewProps) => {
   return (
     <section className={VIEW_LAYOUT_CLASS}>
       <Hero
@@ -39,7 +47,7 @@ export const HomeView = ({ hero, partners, site, testimonials, gridItems }: Home
       <Separator />
       <OurObjectives />
       <Separator />
-      <UpcomingEvents />
+      <UpcomingEvents events={events} />
       <Separator />
       <Testimonials testimonials={testimonials} />
     </section>
