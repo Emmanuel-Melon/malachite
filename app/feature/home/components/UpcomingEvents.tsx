@@ -1,10 +1,10 @@
+import { Calendar } from "lucide-react";
 import { Statement } from "@/components/atoms/Statement";
 import { SectionHeader } from "@/components/molecules/SectionHeader";
-import { Section } from "@/components/organisms/section";
-import { EventCard } from "./EventCard";
-import type { Event } from "../home.types";
 import { EmptyState } from "@/components/organisms/async-states/empty";
-import { Calendar } from "lucide-react";
+import { Section } from "@/components/organisms/section";
+import type { Event } from "../home.types";
+import { EventCard } from "./EventCard";
 
 interface UpcomingEventsProps {
   events: Event[];

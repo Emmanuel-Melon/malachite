@@ -1,11 +1,10 @@
-// app/feature/contact/views/ContactView.tsx
 "use client";
 import { type LucideIcon, Mail, MapPin, Phone } from "lucide-react";
 import { PageHeader } from "@/components/molecules/layout/PageHeader";
 import { VIEW_LAYOUT_CLASS } from "@/lib/styles";
 import { ContactForm } from "../components/ContactForm";
 import { ContactInfoCard } from "../components/ContactInfoCard";
-import type { ContactMethodData, ContactViewProps } from "../contact.types";
+import type { ContactMethodData, ContactPageHeaderData } from "../contact.types";
 
 const iconMap: Record<ContactMethodData["iconName"], LucideIcon> = {
   mail: Mail,
@@ -13,13 +12,21 @@ const iconMap: Record<ContactMethodData["iconName"], LucideIcon> = {
   phone: Phone,
 };
 
+export interface ContactViewProps {
+  contactMethods: ContactMethodData[];
+  pageHeader?: ContactPageHeaderData;
+}
+
 export const ContactView = ({ contactMethods, pageHeader }: ContactViewProps) => {
   return (
     <section className={VIEW_LAYOUT_CLASS}>
       <PageHeader
         gradientText={pageHeader?.gradientText ?? "restoration."}
         label={pageHeader?.label ?? "Get in Touch"}
-        statement={pageHeader?.statement ?? "Our specialist team is ready to provide the support and guidance you need. Reach out today for a confidential consultation."}
+        statement={
+          pageHeader?.statement ??
+          "Our specialist team is ready to provide the support and guidance you need. Reach out today for a confidential consultation."
+        }
         title={pageHeader?.title ?? "Start your journey to"}
       />
       <section>

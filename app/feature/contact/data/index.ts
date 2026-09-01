@@ -1,11 +1,6 @@
 import { sanityClient } from "@/lib/sanity";
-import type { ContactMethodData, ContactPageHeaderData } from "../contact.types";
+import type { ContactMethodData, ContactPageData, ContactPageHeaderData } from "../contact.types";
 import { contactPageQuery } from "./contact.queries";
-
-export interface ContactPageData {
-  contactMethods: ContactMethodData[];
-  pageHeader: ContactPageHeaderData;
-}
 
 export async function getContactPageData(): Promise<ContactPageData> {
   const data = await sanityClient.fetch<{

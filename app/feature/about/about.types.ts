@@ -25,3 +25,9 @@ export interface CultureItemData {
   color: string;
   bg: string;
 }
+
+export interface AboutPageData {
+  founder: FounderData;
+  teamMembers: TeamMember[];
+  cultureItems: CultureItemData[];
+}

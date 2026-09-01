@@ -40,17 +40,13 @@ export const EmptyState = ({
 
         <div className="flex-grow space-y-2 text-center md:text-left">
           <div className="flex items-center justify-center gap-3 md:justify-start">
-            <span className={cn("text-[10px] tracking-[.3em] opacity-80 uppercase")}>
-              {tag}
-            </span>
+            <span className={cn("text-[10px] tracking-[.3em] uppercase opacity-80")}>{tag}</span>
           </div>
-          <h3 className="text-2xl font-medium tracking-tighter md:text-3xl capitalize">
+          <h3 className="text-2xl font-medium tracking-tighter capitalize md:text-3xl">
             {message}
           </h3>
           {description && (
-            <p className="text-muted-foreground max-w-xl text-lg leading-relaxed">
-              {description}
-            </p>
+            <p className="text-muted-foreground max-w-xl text-lg leading-relaxed">{description}</p>
           )}
         </div>
       </div>

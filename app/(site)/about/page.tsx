@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getCultureItems, getFounder, getTeamMembers } from "@/app/feature/about/data";
+import { getAboutPageData } from "@/app/feature/about/data";
 import { AboutView } from "@/app/feature/about/views/AboutView";
 
 export const metadata: Metadata = {
@@ -8,11 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default async function AboutPage() {
-  const [founder, teamMembers, cultureItems] = await Promise.all([
-    getFounder(),
-    getTeamMembers(),
-    getCultureItems(),
-  ]);
+  const { founder, teamMembers, cultureItems } = await getAboutPageData();
 
   return <AboutView cultureItems={cultureItems} founder={founder} teamMembers={teamMembers} />;
 }

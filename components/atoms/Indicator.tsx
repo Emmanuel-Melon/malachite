@@ -32,11 +32,34 @@ export const Indicator = ({
 
   if (layout === "grid") {
     return (
-      <div className={cn("grid grid-cols-2 gap-1 shrink-0 w-fit", className)}>
-        <div className={cn("rounded-full", activeSize, activeVariant, isAnimating && "animate-bounce")} />
-        <div className={cn("rounded-full opacity-40", activeSize, activeVariant, isAnimating && "animate-bounce [animation-delay:-0.1s]")} />
-        <div className={cn("rounded-full opacity-40", activeSize, activeVariant, isAnimating && "animate-bounce [animation-delay:-0.2s]")} />
-        <div className={cn("rounded-full", activeSize, activeVariant, isAnimating && "animate-bounce [animation-delay:-0.3s]")} />
+      <div className={cn("grid w-fit shrink-0 grid-cols-2 gap-1", className)}>
+        <div
+          className={cn("rounded-full", activeSize, activeVariant, isAnimating && "animate-bounce")}
+        />
+        <div
+          className={cn(
+            "rounded-full opacity-40",
+            activeSize,
+            activeVariant,
+            isAnimating && "animate-bounce [animation-delay:-0.1s]",
+          )}
+        />
+        <div
+          className={cn(
+            "rounded-full opacity-40",
+            activeSize,
+            activeVariant,
+            isAnimating && "animate-bounce [animation-delay:-0.2s]",
+          )}
+        />
+        <div
+          className={cn(
+            "rounded-full",
+            activeSize,
+            activeVariant,
+            isAnimating && "animate-bounce [animation-delay:-0.3s]",
+          )}
+        />
       </div>
     );
   }

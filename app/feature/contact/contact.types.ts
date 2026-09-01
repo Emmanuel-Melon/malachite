@@ -13,7 +13,7 @@ export interface ContactPageHeaderData {
   statement: string;
 }
 
-export interface ContactViewProps {
+export interface ContactPageData {
   contactMethods: ContactMethodData[];
-  pageHeader?: ContactPageHeaderData;
+  pageHeader: ContactPageHeaderData;
 }

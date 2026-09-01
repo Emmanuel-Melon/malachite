@@ -1,6 +1,13 @@
+import type {
+  CoreValue,
+  FocusArea,
+  HeroData,
+  HeroGridItem,
+  HomeProgram,
+  Objective,
+  Testimonial,
+} from "@/app/feature/home/home.types";
 import { sanityClient } from "@/lib/sanity";
-import type { HeroData, FocusArea, HomeProgram, Objective, Testimonial, HeroGridItem, CoreValue } from "@/app/feature/home/home.types";
-
 
 export async function getHeroData(): Promise<HeroData> {
   const query = `*[_type == "hero"][0]{ description, subtitles }`;

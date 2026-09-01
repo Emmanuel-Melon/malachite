@@ -1,7 +1,10 @@
-import { sanityClient } from "@/lib/sanity";
+import type {
+  Program,
+  ProgramSummaryItem,
+  ProgramsRegistry,
+} from "@/app/feature/programs/programs.types";
 import { getPartners } from "@/lib/data/partners";
-import type { ProgramSummaryItem, ProgramsRegistry, Program } from "@/app/feature/programs/programs.types";
-
+import { sanityClient } from "@/lib/sanity";
 
 export async function getProgramsData(): Promise<ProgramsRegistry> {
   const allPartners = await getPartners();
@@ -27,7 +30,7 @@ export async function getProgramsData(): Promise<ProgramsRegistry> {
           desc
         }
       }
-    }`
+    }`,
   );
 
   const registry: Partial<ProgramsRegistry> = {};
