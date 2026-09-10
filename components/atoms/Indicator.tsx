@@ -12,7 +12,7 @@ interface IndicatorProps {
 export const Indicator = ({
   variant = "primary",
   size = "default",
-  layout = "row",
+  layout = "grid",
   isAnimating = true,
   className,
 }: IndicatorProps) => {

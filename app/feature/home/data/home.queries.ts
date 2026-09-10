@@ -1,64 +1,62 @@
-import type {
-  CoreValue,
-  FocusArea,
-  HeroData,
-  HeroGridItem,
-  HomeProgram,
-  Objective,
-  Testimonial,
-} from "@/app/feature/home/home.types";
-import { sanityClient } from "@/lib/sanity";
-
-export async function getHeroData(): Promise<HeroData> {
-  const query = `*[_type == "hero"][0]{ description, subtitles }`;
-  return sanityClient.fetch<HeroData>(query);
-}
-
-export async function getFocusAreas(): Promise<FocusArea[]> {
-  const query = `*[_type == "focusArea"]{ id, title, description, iconName, tag }`;
-  return sanityClient.fetch<FocusArea[]>(query);
-}
-
-export async function getHomePrograms(): Promise<HomeProgram[]> {
-  const query = `*[_type == "homeProgram"]{ id, title, description, iconName }`;
-  return sanityClient.fetch<HomeProgram[]>(query);
-}
-
-export async function getObjectives(): Promise<Objective[]> {
-  const query = `*[_type == "objective"]{ id, title, description, iconName }`;
-  return sanityClient.fetch<Objective[]>(query);
-}
-
-export async function getEvents(): Promise<Event[]> {
-  const query = `*[_type == "event"]{ id, title, description, day, month, time, location, tag }`;
-  return sanityClient.fetch<Event[]>(query);
-}
-
-export async function getTestimonials(): Promise<Testimonial[]> {
-  const query = `*[_type == "testimonial"]{ id, author, role, quote }`;
-  return sanityClient.fetch<Testimonial[]>(query);
-}
-
-export async function getHeroGridItems(): Promise<HeroGridItem[]> {
-  const query = `
-    *[_type == "heroGridItem"]{
+export const homePageQuery = `
+  {
+    "heroData": *[_type == "heroData"][0]{
+      description,
+      subtitles
+    },
+    "focusAreas": *[_type == "focusArea"]{
       id,
-      label,
+      description,
+      iconName,
+      tag,
+      title
+    },
+    "homePrograms": *[_type == "homeProgram"]{
+      id,
+      description,
+      iconName,
+      title
+    },
+    "objectives": *[_type == "objective"]{
+      id,
+      description,
+      iconName,
+      title
+    },
+    "events": *[_type == "event"]{
+      id,
+      day,
+      description,
+      location,
+      month,
+      tag,
+      time,
+      title
+    },
+    "testimonials": *[_type == "testimonial"]{
+      id,
+      author,
+      quote,
+      role
+    },
+    "heroGridItems": *[_type == "heroGridItem"]{
+      id,
       alt,
-      "src": image.asset->url,
       aspect,
+      bottomPadding,
       colSpan,
       containerClass,
       gradientOpacity,
+      label,
       rotate,
-      zIndex,
-      bottomPadding
+      "src": image.asset->url,
+      zIndex
+    },
+    "coreValues": *[_type == "coreValue"]{
+      id,
+      title,
+      description,
+      iconName
     }
-  `;
-  return sanityClient.fetch<HeroGridItem[]>(query);
-}
-
-export async function getCoreValues(): Promise<CoreValue[]> {
-  const query = `*[_type == "coreValue"]{ id, title, description, iconName }`;
-  return sanityClient.fetch<CoreValue[]>(query);
-}
+  }
+`;

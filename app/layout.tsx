@@ -49,7 +49,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${cinzel.variable} ${roboto.variable} bg-background font-sans antialiased`}>
-        <Navbar navLinks={site.navLinks} phoneNumber={site.phoneNumber} />
+        <Navbar navLinks={site.navLinks} phoneNumber={site.phoneNumber} socials={site.socials} contact={site.contact} />
         <main className="py-12 pt-32 md:pt-40">
           <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8">{children}</div>
         </main>

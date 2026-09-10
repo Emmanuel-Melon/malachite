@@ -41,7 +41,7 @@ export interface SiteData {
 
 export type PartnerCategory = "workplace" | "individual-groups" | "school";
 
-export type PartnerSponsor = "minet" | "direct" | "precision-hr";
+export type PartnerSponsor = "minet" | "others" | "precision";
 
 export interface Partner {
   category: PartnerCategory;

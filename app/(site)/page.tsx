@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getEvents, getHeroData, getHeroGridItems, getTestimonials } from "@/app/feature/home/data";
 import { HomeView } from "@/app/feature/home/views/HomeView";
-import { getPartners } from "@/lib/data/partners";
+import { getPartners } from "@/lib/data/partner.queries";
 import { getSiteData } from "@/lib/data/site";
 
 export const metadata: Metadata = {
@@ -19,6 +19,8 @@ export default async function HomePage() {
     getHeroGridItems(),
     getEvents(),
   ]);
+
+  console.log("partners", partners);
 
   return (
     <HomeView

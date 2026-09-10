@@ -40,7 +40,7 @@ export const HomeView = ({
         socials={site.socials}
         gridItems={gridItems}
       />
-      <Partners items={partners} />
+      <Partners items={partners} groupedBySponsor />
       <MentalHealthApproach />
       <ValuesSection />
       <OurPrograms />

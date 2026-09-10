@@ -69,3 +69,14 @@ export interface CoreValue {
   description: string;
   iconName: "heart" | "users" | "sparkles" | "shield-check" | "handshake";
 }
+
+export interface HomePageData {
+  heroData: HeroData;
+  focusAreas: FocusArea[];
+  homePrograms: HomeProgram[];
+  objectives: Objective[];
+  events: Event[];
+  testimonials: Testimonial[];
+  heroGridItems: HeroGridItem[];
+  coreValues: CoreValue[];
+}

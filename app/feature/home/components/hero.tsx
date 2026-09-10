@@ -28,21 +28,27 @@ const socialIconMap: Record<string, LucideIcon> = {
   youtube: Youtube,
 };
 
-interface HeroProps extends HeroData {
+interface HeroProps extends Omit<HeroData, "subtitles"> {
   founder: Pick<SiteData, "founderName" | "founderRole" | "founderQuote">;
   gridItems: HeroGridItem[];
   socials: SiteData["socials"];
 }
 
-export const Hero = ({ subtitles, description, founder, gridItems, socials }: HeroProps) => {
+const rotatingTaglines = [
+  "We are committed to support your journey to mental well-being",
+  "We offer you a safe space to explore and learn",
+  "Discover a path to mental well-being",
+];
+
+export const Hero = ({ description, founder, gridItems, socials }: HeroProps) => {
   const [activeSubtitle, setActiveSubtitle] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveSubtitle((current) => (current + 1) % subtitles.length);
+      setActiveSubtitle((current) => (current + 1) % rotatingTaglines.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, [subtitles.length]);
+  }, []);
 
   return (
     <section className="relative overflow-hidden font-sans">
@@ -56,7 +62,7 @@ export const Hero = ({ subtitles, description, founder, gridItems, socials }: He
           <div className="space-y-12 lg:col-span-8">
             <div className="space-y-6">
               <div className="grid w-full grid-cols-1 grid-rows-1 overflow-hidden">
-                {subtitles.map((text, i) => (
+                {rotatingTaglines.map((text, i) => (
                   <h3
                     key={i}
                     className={cn(
@@ -77,6 +83,10 @@ export const Hero = ({ subtitles, description, founder, gridItems, socials }: He
                 title="Hope, healing,"
                 gradientText="and restoration."
               />
+              <p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
+                We are committed to restoring mental well being with evidence based conventional and
+                biblical approaches.
+              </p>
             </div>
 
             <div className="space-y-10">
@@ -130,9 +140,10 @@ export const Hero = ({ subtitles, description, founder, gridItems, socials }: He
           </div>
         </div>
 
-        <div className="relative mt-24 hidden md:block">
-          <HeroGrid items={gridItems} />
-        </div>
+      </div>
+
+      <div className="relative mt-24 hidden w-full md:block">
+        <HeroGrid items={gridItems} />
       </div>
     </section>
   );
