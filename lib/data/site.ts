@@ -4,7 +4,7 @@ const siteData: SiteData = {
   mission:
     "Empowering individuals to reach their full potential through sustainable recovery and clinical innovation.",
   founderName: "Christina Angela Ntulo",
-  founderRole: "Founder",
+  founderRole: "Founder & Executive Director",
   founderQuote:
     "Empowering individuals to reach their full potential through sustainable recovery and clinical innovation.",
   phoneNumber: "+256757356691",

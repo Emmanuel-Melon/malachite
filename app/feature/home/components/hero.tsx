@@ -9,6 +9,8 @@ import {
   Twitter,
   Users,
   Youtube,
+  ArrowRight,
+  HeartHandshake,
 } from "lucide-react";
 import { GradientHeading } from "@/components/atoms/GradientHeading";
 import { IconContainer } from "@/components/atoms/IconContainer";
@@ -94,12 +96,27 @@ export const Hero = ({ description, founder, gridItems, socials }: HeroProps) =>
                 {description}
               </p>
 
-              <div className="flex flex-wrap items-center gap-8">
-                <div className="flex flex-wrap gap-4">
-                  <MyButton variant="default" size="lg" className="px-8">
+              <div className="space-y-6">
+                <div className="flex flex-wrap items-center gap-4">
+                  <MyButton variant="outline" size="lg" className="px-8">
                     View Programs
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </MyButton>
+                  <MyButton
+                    variant="default"
+                    size="lg"
+                    className="px-8"
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfVqk3Ytl8is-Oxk0AVqUx3v0sOEqgQ-L21OSNMnOPc4Yp14Q/viewform"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <HeartHandshake className="mr-2 h-4 w-4" />
+                    Request Therapy or Coaching Support
                   </MyButton>
                 </div>
+                <p className="text-muted-foreground max-w-2xl text-sm leading-relaxed">
+                  Complete our confidential support request form and a member of our team will get back to you.
+                </p>
                 <div className="border-border/60 flex items-center gap-4 border-l pl-8">
                   <div className="flex flex-wrap items-center gap-4">
                     {socials.map((social, index) => {

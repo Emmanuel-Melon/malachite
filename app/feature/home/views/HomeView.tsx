@@ -1,5 +1,6 @@
 import { ValuesSection } from "@/app/feature/home/components/ValuesSection";
 import { Separator } from "@/components/atoms/separator";
+import { Reveal } from "@/components/atoms/Reveal";
 import type { Partner, SiteData } from "@/lib/data/shared.types";
 import { VIEW_LAYOUT_CLASS } from "@/lib/styles";
 import { MentalHealthApproach } from "../components/MentalHealthApproach";
@@ -10,6 +11,9 @@ import { UpcomingEvents } from "../components/UpcomingEvents";
 import { Hero } from "../components/hero";
 import { Partners } from "../components/partners";
 import type { Event, HeroData, HeroGridItem, Testimonial } from "../home.types";
+import { SupportPathways } from "../components/SupportPathways";
+import { FAQSection } from "../components/FAQSection";
+import { YourPrivacyMatters } from "../components/YourPrivacyMatters";
 
 interface HomeViewProps {
   hero: HeroData;
@@ -40,16 +44,63 @@ export const HomeView = ({
         socials={site.socials}
         gridItems={gridItems}
       />
-      <Partners items={partners} groupedBySponsor />
-      <MentalHealthApproach />
-      <ValuesSection />
-      <OurPrograms />
-      <Separator />
-      <OurObjectives />
-      <Separator />
-      <UpcomingEvents events={events} />
-      <Separator />
-      <Testimonials testimonials={testimonials} />
+      <Reveal>
+        <Separator />
+      </Reveal>
+      <Reveal>
+        <SupportPathways />
+      </Reveal>
+      <Reveal>
+        <Separator />
+      </Reveal>
+      <Reveal>
+        <Partners items={partners} groupedBySponsor />
+      </Reveal>
+      <Reveal>
+        <Separator />
+      </Reveal>
+      <Reveal>
+        <MentalHealthApproach />
+      </Reveal>
+      <Reveal>
+        <ValuesSection />
+      </Reveal>
+      <Reveal>
+        <Separator />
+      </Reveal>
+      <Reveal>
+        <OurPrograms />
+      </Reveal>
+      <Reveal>
+        <Separator />
+      </Reveal>
+      <Reveal>
+        <YourPrivacyMatters />
+      </Reveal>
+      <Reveal>
+        <Separator />
+      </Reveal>
+      <Reveal>
+        <OurObjectives />
+      </Reveal>
+      <Reveal>
+        <Separator />
+      </Reveal>
+      <Reveal>
+        <UpcomingEvents events={events} />
+      </Reveal>
+      <Reveal>
+        <Separator />
+      </Reveal>
+      <Reveal>
+        <Testimonials testimonials={testimonials} />
+      </Reveal>
+      <Reveal>
+        <Separator />
+      </Reveal>
+      <Reveal>
+        <FAQSection />
+      </Reveal>
     </section>
   );
 };

@@ -29,7 +29,11 @@ export const MyButton = ({
         className,
       )}
     >
-      {isLink ? <a href={href}>{children}</a> : children}
+      {isLink ? (
+        <a href={href} target={props.target} rel={props.rel}>
+          {children}
+        </a>
+      ) : children}
     </Button>
   );
 };

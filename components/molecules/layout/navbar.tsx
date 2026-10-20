@@ -33,7 +33,7 @@ export const Navbar = ({ navLinks, phoneNumber, socials, contact }: NavbarProps)
             {phoneNumber}
           </a>
           <Link href="/" className="absolute left-1/2 top-3 -translate-x-1/2 transition-transform hover:opacity-90">
-            <Image src="/logo.png" alt="Company Logo" width={384} height={112} className="h-28 w-96 object-contain" priority />
+            <Image src="/logo.png" alt="Company Logo" width={448} height={128} className="h-32 w-[28rem] object-contain" priority />
           </Link>
           <div className="w-[200px]" />
         </div>

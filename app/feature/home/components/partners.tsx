@@ -18,12 +18,24 @@ interface PartnersProps {
   groupedBySponsor?: boolean;
 }
 
-const ITEMS_PER_PAGE = 6;
+const ITEMS_PER_PAGE = 8;
 
 const sponsorLabels: Record<PartnerSponsor, string> = {
   minet: "Minet",
-  precision: "Percision HR",
+  precision: "Precision HR",
   others: "Others",
+};
+
+const sponsorHeadings: Record<PartnerSponsor, string> = {
+  minet: "Organizations supported through our EAP partnership with Minet",
+  precision: "Organizations supported through our partnership with Precision HR",
+  others: "Other partner organizations",
+};
+
+const sponsorDescriptions: Record<PartnerSponsor, string> = {
+  minet: "",
+  precision: "",
+  others: "",
 };
 
 const sponsorOrder: PartnerSponsor[] = ["minet", "precision", "others"];
@@ -40,7 +52,7 @@ const PartnerGrid = ({ items }: { items: Partner[] }) => {
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {paged.map((partner) => (
           <PartnerItem key={partner.id} partner={partner} />
         ))}
@@ -81,7 +93,13 @@ export const Partners = ({
 
     return sponsorOrder
       .filter((s) => groups.has(s) && groups.get(s)!.length > 0)
-      .map((s) => ({ sponsor: s, label: sponsorLabels[s], items: groups.get(s)! }));
+      .map((s) => ({
+        sponsor: s,
+        label: sponsorLabels[s],
+        heading: sponsorHeadings[s],
+        description: sponsorDescriptions[s],
+        items: groups.get(s)!,
+      }));
   }, [items, groupedBySponsor]);
 
   const [activeTab, setActiveTab] = useState<PartnerSponsor | null>(
@@ -150,7 +168,19 @@ export const Partners = ({
             </div>
           )}
 
-          {activeGroup && <PartnerGrid items={activeGroup.items} />}
+          {activeGroup && (
+            <div className="space-y-6">
+              {activeGroup.heading && (
+                <div className="space-y-2">
+                  <h3 className="text-xl font-semibold md:text-2xl">{activeGroup.heading}</h3>
+                  {activeGroup.description && (
+                    <p className="text-muted-foreground text-lg leading-relaxed">{activeGroup.description}</p>
+                  )}
+                </div>
+              )}
+              <PartnerGrid items={activeGroup.items} />
+            </div>
+          )}
         </div>
       </div>
     </Section>
