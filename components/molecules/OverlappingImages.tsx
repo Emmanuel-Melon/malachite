@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ImageContainer } from "@/components/molecules/ImageContainer";
+import { fadeUp } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 interface OverlappingImagesProps {
@@ -18,7 +22,10 @@ export const OverlappingImages = ({
   frontAlt = "foreground image",
 }: OverlappingImagesProps) => {
   return (
-    <div className={cn("relative hidden h-[500px] w-full md:h-[800px] lg:block", className)}>
+    <motion.div
+      className={cn("relative hidden h-[500px] w-full md:h-[800px] lg:block", className)}
+      variants={fadeUp}
+    >
       <div className="bg-primary/5 absolute top-1/2 left-1/2 -z-10 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px]" />
 
       <div className="absolute top-0 right-0 z-10 h-[70%] w-[80%] -rotate-3 transition-all duration-500 hover:scale-[1.02] hover:rotate-0">
@@ -37,6 +44,6 @@ export const OverlappingImages = ({
           <Image src={frontImage} alt={frontAlt} className="h-full w-full object-cover" fill />
         </ImageContainer>
       </div>
-    </div>
+    </motion.div>
   );
 };

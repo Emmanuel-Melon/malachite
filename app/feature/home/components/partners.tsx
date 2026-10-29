@@ -2,10 +2,13 @@
 
 import { useMemo, useState } from "react";
 import { usePagination } from "@/hooks/use-pagination";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { motion } from "framer-motion";
 import { PaginationControls } from "@/components/molecules/PaginationControls";
 import { SectionHeader } from "@/components/molecules/SectionHeader";
 import { Section } from "@/components/organisms/section";
 import type { Partner, PartnerSponsor } from "@/lib/data/shared.types";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import { PartnerItem } from "./PartnerItem";
 
@@ -51,7 +54,7 @@ const PartnerGrid = ({ items }: { items: Partner[] }) => {
   const { page, paged, totalPages, next, prev } = usePagination(items, ITEMS_PER_PAGE);
 
   return (
-    <div className="w-full">
+    <motion.div className="w-full" variants={staggerContainer}>
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {paged.map((partner) => (
           <PartnerItem key={partner.id} partner={partner} />
@@ -69,7 +72,7 @@ const PartnerGrid = ({ items }: { items: Partner[] }) => {
           />
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
@@ -109,29 +112,38 @@ export const Partners = ({
   const activeGroup = grouped?.find((g) => g.sponsor === activeTab);
 
   const { page, paged, totalPages, next, prev } = usePagination(items, ITEMS_PER_PAGE);
+  const animationProps = useScrollAnimation();
 
   if (items.length === 0) return null;
 
   if (!groupedBySponsor) {
     return (
       <Section>
-        <div className="grid items-center gap-16 lg:grid-cols-12 lg:gap-24">
-          <div className="space-y-8 lg:col-span-5">
+        <motion.div
+          className="grid items-center gap-16 lg:grid-cols-12 lg:gap-24"
+          variants={staggerContainer}
+          {...animationProps}
+        >
+          <motion.div className="space-y-8 lg:col-span-5" variants={staggerContainer}>
             <div className="space-y-6">
               <SectionHeader title={title} gradientText={gradientText} label={label} />
-              <p className="text-muted-foreground text-lg leading-relaxed">{description}</p>
+              <motion.p className="text-muted-foreground text-lg leading-relaxed" variants={fadeUp}>
+                {description}
+              </motion.p>
             </div>
-            <PaginationControls
-              page={page}
-              totalPages={totalPages}
-              onNext={next}
-              onPrev={prev}
-              prevLabel="Previous partners"
-              nextLabel="Next partners"
-            />
-          </div>
+            <motion.div variants={fadeUp}>
+              <PaginationControls
+                page={page}
+                totalPages={totalPages}
+                onNext={next}
+                onPrev={prev}
+                prevLabel="Previous partners"
+                nextLabel="Next partners"
+              />
+            </motion.div>
+          </motion.div>
           <PartnerGrid items={paged} />
-        </div>
+        </motion.div>
       </Section>
     );
   }
@@ -142,12 +154,18 @@ export const Partners = ({
         <div className="bg-primary/5 pointer-events-none absolute top-0 right-0 h-[50%] w-[50%] rounded-full blur-[120px]" />
         <div className="pointer-events-none absolute bottom-0 left-0 h-[40%] w-[40%] rounded-full bg-orange-200/20 blur-[100px]" />
 
-        <div className="relative z-10 space-y-12">
+        <motion.div
+          className="relative z-10 space-y-12"
+          variants={staggerContainer}
+          {...animationProps}
+        >
           <SectionHeader title={title} gradientText={gradientText} label={label} />
-          <p className="text-muted-foreground text-lg leading-relaxed">{description}</p>
+          <motion.p className="text-muted-foreground text-lg leading-relaxed" variants={fadeUp}>
+            {description}
+          </motion.p>
 
           {grouped && grouped.length > 1 && (
-            <div className="border-border/40 flex gap-1 border-b">
+            <motion.div className="border-border/40 flex gap-1 border-b" variants={fadeUp}>
               {grouped.map((group) => (
                 <button
                   key={group.sponsor}
@@ -165,23 +183,25 @@ export const Partners = ({
                   )}
                 </button>
               ))}
-            </div>
+            </motion.div>
           )}
 
           {activeGroup && (
-            <div className="space-y-6">
+            <motion.div className="space-y-6" variants={staggerContainer}>
               {activeGroup.heading && (
-                <div className="space-y-2">
+                <motion.div className="space-y-2" variants={fadeUp}>
                   <h3 className="text-xl font-semibold md:text-2xl">{activeGroup.heading}</h3>
                   {activeGroup.description && (
-                    <p className="text-muted-foreground text-lg leading-relaxed">{activeGroup.description}</p>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      {activeGroup.description}
+                    </p>
                   )}
-                </div>
+                </motion.div>
               )}
               <PartnerGrid items={activeGroup.items} />
-            </div>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
       </div>
     </Section>
   );

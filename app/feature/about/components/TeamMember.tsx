@@ -1,5 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ImageContainer } from "@/components/molecules/ImageContainer";
+import { fadeUp } from "@/lib/motion";
 import type { TeamMember } from "../about.types";
 
 interface TeamMemberProps {
@@ -7,7 +11,7 @@ interface TeamMemberProps {
 }
 
 export const TeamMemberItem = ({ member }: TeamMemberProps) => (
-  <div className="group relative aspect-[3/4] w-full">
+  <motion.div className="group relative aspect-[3/4] w-full" variants={fadeUp}>
     <ImageContainer className="h-full w-full transition-all duration-500">
       <Image
         src={member.image}
@@ -26,5 +30,5 @@ export const TeamMemberItem = ({ member }: TeamMemberProps) => (
         </div>
       </div>
     </ImageContainer>
-  </div>
+  </motion.div>
 );

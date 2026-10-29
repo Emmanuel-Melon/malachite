@@ -1,4 +1,8 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 interface StatementProps {
@@ -9,7 +13,7 @@ interface StatementProps {
 
 export const Statement = ({ text, label, className }: StatementProps) => {
   return (
-    <div className={cn("relative max-w-sm pl-8", className)}>
+    <motion.div className={cn("relative max-w-sm pl-8", className)} variants={fadeUp}>
       <div className="from-primary via-primary/50 absolute top-1.5 bottom-1.5 left-0 w-1.5 rounded-full bg-gradient-to-b to-transparent" />
 
       <p className="text-foreground/90 text-xl leading-relaxed tracking-tight">{text}</p>
@@ -18,6 +22,6 @@ export const Statement = ({ text, label, className }: StatementProps) => {
         <div className="bg-border h-px w-8" />
         <span className="text-muted-foreground tracking-[.3em]">{label}</span>
       </div>
-    </div>
+    </motion.div>
   );
 };

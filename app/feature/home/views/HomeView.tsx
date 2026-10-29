@@ -1,19 +1,18 @@
 import { ValuesSection } from "@/app/feature/home/components/ValuesSection";
 import { Separator } from "@/components/atoms/separator";
-import { Reveal } from "@/components/atoms/Reveal";
 import type { Partner, SiteData } from "@/lib/data/shared.types";
 import { VIEW_LAYOUT_CLASS } from "@/lib/styles";
+import { FAQSection } from "../components/FAQSection";
 import { MentalHealthApproach } from "../components/MentalHealthApproach";
 import { OurObjectives } from "../components/OurObjectives";
 import { OurPrograms } from "../components/OurPrograms";
+import { SupportPathways } from "../components/SupportPathways";
 import { Testimonials } from "../components/Testimoials";
 import { UpcomingEvents } from "../components/UpcomingEvents";
+import { YourPrivacyMatters } from "../components/YourPrivacyMatters";
 import { Hero } from "../components/hero";
 import { Partners } from "../components/partners";
 import type { Event, HeroData, HeroGridItem, Testimonial } from "../home.types";
-import { SupportPathways } from "../components/SupportPathways";
-import { FAQSection } from "../components/FAQSection";
-import { YourPrivacyMatters } from "../components/YourPrivacyMatters";
 
 interface HomeViewProps {
   hero: HeroData;
@@ -44,63 +43,25 @@ export const HomeView = ({
         socials={site.socials}
         gridItems={gridItems}
       />
-      <Reveal>
-        <Separator />
-      </Reveal>
-      <Reveal>
-        <SupportPathways />
-      </Reveal>
-      <Reveal>
-        <Separator />
-      </Reveal>
-      <Reveal>
-        <Partners items={partners} groupedBySponsor />
-      </Reveal>
-      <Reveal>
-        <Separator />
-      </Reveal>
-      <Reveal>
-        <MentalHealthApproach />
-      </Reveal>
-      <Reveal>
-        <ValuesSection />
-      </Reveal>
-      <Reveal>
-        <Separator />
-      </Reveal>
-      <Reveal>
-        <OurPrograms />
-      </Reveal>
-      <Reveal>
-        <Separator />
-      </Reveal>
-      <Reveal>
-        <YourPrivacyMatters />
-      </Reveal>
-      <Reveal>
-        <Separator />
-      </Reveal>
-      <Reveal>
-        <OurObjectives />
-      </Reveal>
-      <Reveal>
-        <Separator />
-      </Reveal>
-      <Reveal>
-        <UpcomingEvents events={events} />
-      </Reveal>
-      <Reveal>
-        <Separator />
-      </Reveal>
-      <Reveal>
-        <Testimonials testimonials={testimonials} />
-      </Reveal>
-      <Reveal>
-        <Separator />
-      </Reveal>
-      <Reveal>
-        <FAQSection />
-      </Reveal>
+      <Separator />
+      <SupportPathways />
+      <Separator />
+      <Partners items={partners} groupedBySponsor />
+      <Separator />
+      <MentalHealthApproach />
+      <ValuesSection />
+      <Separator />
+      <OurPrograms />
+      <Separator />
+      <Separator />
+      <OurObjectives />
+      <Separator />
+      <UpcomingEvents events={events} />
+      <Separator />
+      <Testimonials testimonials={testimonials} />
+      <Separator />
+      <YourPrivacyMatters />
+      <FAQSection />
     </section>
   );
 };

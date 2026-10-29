@@ -1,9 +1,10 @@
-import Link from "next/link";
+"use client";
+
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { motion } from "framer-motion";
 import {
-  ArrowRight,
   Briefcase,
   Building2,
-  CalendarCheck,
   Compass,
   HeartHandshake,
   ShieldCheck,
@@ -11,11 +12,11 @@ import {
   User,
   Users,
 } from "lucide-react";
-import { MyButton } from "@/components/atoms/button";
 import { IconContainer } from "@/components/atoms/IconContainer";
 import { InfoBlock } from "@/components/molecules/InfoBlock";
 import { SectionHeader } from "@/components/molecules/SectionHeader";
 import { Section } from "@/components/organisms/section";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 
 const individualPathways = [
   {
@@ -59,9 +60,11 @@ const corporatePathways = [
 ];
 
 export const SupportPathways = () => {
+  const animationProps = useScrollAnimation();
+
   return (
     <Section>
-      <div className="space-y-16">
+      <motion.div className="space-y-16" variants={staggerContainer} {...animationProps}>
         <SectionHeader
           label="Tailored Solutions"
           title="Choose your path"
@@ -70,88 +73,64 @@ export const SupportPathways = () => {
 
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Column 1: Individuals */}
-          <div className="bg-slate-50/50 border-border/30 flex flex-col justify-between rounded-[2.5rem] border p-8 md:p-10">
+          <motion.div
+            className="border-border/30 flex flex-col justify-between rounded-[2.5rem] border bg-slate-50/50 p-8 md:p-10"
+            variants={staggerContainer}
+          >
             <div className="space-y-8">
-              <div className="flex items-center gap-4">
+              <motion.div className="flex items-center gap-4" variants={fadeUp}>
                 <IconContainer
                   icon={User}
                   className="h-14 w-14 rounded-2xl bg-amber-500/10 text-amber-600"
                   iconClassName="w-7 h-7"
                 />
                 <div>
-                  <span className="text-[10px] font-semibold tracking-[0.3em] opacity-70 uppercase">
-                    Pathway 01
-                  </span>
                   <h3 className="text-2xl font-medium tracking-tight md:text-3xl">
                     Individuals & Families
                   </h3>
                 </div>
-              </div>
+              </motion.div>
 
               <div className="space-y-6 pt-4">
                 {individualPathways.map((item) => (
-                  <InfoBlock
-                    key={item.title}
-                    icon={item.icon}
-                    title={item.title}
-                    description={item.description}
-                  />
+                  <motion.div key={item.title} variants={fadeUp}>
+                    <InfoBlock icon={item.icon} title={item.title} description={item.description} />
+                  </motion.div>
                 ))}
               </div>
             </div>
-
-            <div className="pt-10">
-              <MyButton size="lg" className="w-full" asChild>
-                <Link href="/request-support">
-                  Request Support
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </MyButton>
-            </div>
-          </div>
+          </motion.div>
 
           {/* Column 2: Organizations */}
-          <div className="bg-slate-50/50 border-border/30 flex flex-col justify-between rounded-[2.5rem] border p-8 md:p-10">
+          <motion.div
+            className="border-border/30 flex flex-col justify-between rounded-[2.5rem] border bg-slate-50/50 p-8 md:p-10"
+            variants={staggerContainer}
+          >
             <div className="space-y-8">
-              <div className="flex items-center gap-4">
+              <motion.div className="flex items-center gap-4" variants={fadeUp}>
                 <IconContainer
                   icon={Building2}
                   className="h-14 w-14 rounded-2xl bg-amber-500/10 text-amber-600"
                   iconClassName="w-7 h-7"
                 />
                 <div>
-                  <span className="text-[10px] font-semibold tracking-[0.3em] opacity-70 uppercase">
-                    Pathway 02
-                  </span>
                   <h3 className="text-2xl font-medium tracking-tight md:text-3xl">
                     For Organizations
                   </h3>
                 </div>
-              </div>
+              </motion.div>
 
               <div className="space-y-6 pt-4">
                 {corporatePathways.map((item) => (
-                  <InfoBlock
-                    key={item.title}
-                    icon={item.icon}
-                    title={item.title}
-                    description={item.description}
-                  />
+                  <motion.div key={item.title} variants={fadeUp}>
+                    <InfoBlock icon={item.icon} title={item.title} description={item.description} />
+                  </motion.div>
                 ))}
               </div>
             </div>
-
-            <div className="pt-10">
-              <MyButton size="lg" variant="outline" className="w-full" asChild>
-                <Link href="/corporate-consultation">
-                  Request a Corporate Consultation
-                  <CalendarCheck className="ml-2 h-4 w-4" />
-                </Link>
-              </MyButton>
-            </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };

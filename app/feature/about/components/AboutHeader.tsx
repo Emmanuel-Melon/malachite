@@ -1,9 +1,14 @@
+"use client";
+
 import * as React from "react";
 import Image from "next/image";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { motion } from "framer-motion";
 import { Statement } from "@/components/atoms/Statement";
 import { ImageContainer } from "@/components/molecules/ImageContainer";
 import { SectionHeader } from "@/components/molecules/SectionHeader";
 import { Section } from "@/components/organisms/section";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 import type { FounderData } from "../about.types";
 
 interface AboutHeaderProps extends Omit<FounderData, "founderName"> {
@@ -21,10 +26,16 @@ export const AboutHeader = ({
   founderRole,
   founderName,
 }: AboutHeaderProps) => {
+  const animationProps = useScrollAnimation();
+
   return (
     <Section>
-      <div className="grid items-center gap-16 lg:grid-cols-12">
-        <div className="space-y-12 md:space-y-16 lg:col-span-7">
+      <motion.div
+        className="grid items-center gap-16 lg:grid-cols-12"
+        variants={staggerContainer}
+        {...animationProps}
+      >
+        <motion.div className="space-y-12 md:space-y-16 lg:col-span-7" variants={staggerContainer}>
           <SectionHeader
             label={headerLabel}
             title={headerTitle}
@@ -32,9 +43,9 @@ export const AboutHeader = ({
           />
 
           <Statement text={statementText} label={statementLabel} />
-        </div>
+        </motion.div>
 
-        <div className="relative lg:col-span-5">
+        <motion.div className="relative lg:col-span-5" variants={fadeUp}>
           <div className="group relative aspect-[4/5]">
             <ImageContainer className="h-full w-full border-[12px] border-white shadow-2xl">
               <Image
@@ -54,8 +65,8 @@ export const AboutHeader = ({
               </div>
             </ImageContainer>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </Section>
   );
 };

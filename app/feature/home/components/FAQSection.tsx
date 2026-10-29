@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, PhoneCall } from "lucide-react";
-import { IconContainer } from "@/components/atoms/IconContainer";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { SectionHeader } from "@/components/molecules/SectionHeader";
 import { Section } from "@/components/organisms/section";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 interface FAQItem {
@@ -61,6 +63,7 @@ const faqs: FAQItem[] = [
 
 export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0); // First question open by default
+  const animationProps = useScrollAnimation();
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -68,7 +71,7 @@ export const FAQSection = () => {
 
   return (
     <Section>
-      <div className="w-full space-y-12">
+      <motion.div className="w-full space-y-12" variants={staggerContainer} {...animationProps}>
         {/* Section Header */}
         <div className="text-center md:text-left">
           <SectionHeader
@@ -79,24 +82,27 @@ export const FAQSection = () => {
         </div>
 
         {/* Outer Rounded Surface */}
-        <div className="bg-slate-50/50 border-border/30 rounded-[2.5rem] border p-6 md:p-10">
-          <div className="divide-y divide-border/40">
+        <motion.div
+          className="border-border/30 rounded-[2.5rem] border bg-slate-50/50 p-6 md:p-10"
+          variants={staggerContainer}
+        >
+          <div className="divide-border/40 divide-y">
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
               return (
-                <div key={index} className="py-5 first:pt-0 last:pb-0">
+                <motion.div key={index} className="py-5 first:pt-0 last:pb-0" variants={fadeUp}>
                   <button
                     onClick={() => toggleFAQ(index)}
                     className="flex w-full items-center justify-between gap-4 text-left transition-colors duration-200"
                     aria-expanded={isOpen}
                   >
-                    <h3 className="text-lg font-medium tracking-tight text-foreground md:text-xl">
+                    <h3 className="text-foreground text-lg font-medium tracking-tight md:text-xl">
                       {faq.question}
                     </h3>
                     <div
                       className={cn(
-                        "flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border/50 bg-background transition-transform duration-300",
-                        isOpen && "rotate-180 bg-amber-500/10 text-amber-600 border-amber-500/20",
+                        "border-border/50 bg-background flex h-9 w-9 shrink-0 items-center justify-center rounded-full border transition-transform duration-300",
+                        isOpen && "rotate-180 border-amber-500/20 bg-amber-500/10 text-amber-600",
                       )}
                     >
                       <ChevronDown className="h-5 w-5" />
@@ -106,7 +112,7 @@ export const FAQSection = () => {
                   <div
                     className={cn(
                       "grid transition-all duration-300 ease-in-out",
-                      isOpen ? "grid-rows-[1fr] opacity-100 pt-4" : "grid-rows-[0fr] opacity-0",
+                      isOpen ? "grid-rows-[1fr] pt-4 opacity-100" : "grid-rows-[0fr] opacity-0",
                     )}
                   >
                     <div className="overflow-hidden">
@@ -115,27 +121,12 @@ export const FAQSection = () => {
                       </p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
-        </div>
-
-        {/* Urgent Emergency Callout Box */}
-        <div className="bg-amber-500/10 border-amber-500/20 flex flex-col items-center gap-4 rounded-3xl border p-6 text-center sm:flex-row sm:text-left">
-          <IconContainer
-            icon={PhoneCall}
-            className="h-12 w-12 bg-amber-500/20 text-amber-600 shrink-0"
-            iconClassName="w-6 h-6"
-          />
-          <div className="space-y-1">
-            <h4 className="font-medium text-foreground">Immediate Emergency?</h4>
-            <p className="text-muted-foreground text-sm leading-normal">
-              If you or someone else is in immediate danger, please visit the nearest hospital or emergency room immediately.
-            </p>
-          </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </Section>
   );
 };

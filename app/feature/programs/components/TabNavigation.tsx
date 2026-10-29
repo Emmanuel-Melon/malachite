@@ -1,4 +1,9 @@
+"use client";
+
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { motion } from "framer-motion";
 import { MyButton } from "@/components/atoms/button";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 interface TabNavigationProps<T extends string> {
@@ -12,10 +17,12 @@ export const TabNavigation = <T extends string>({
   onTabChange,
   tabs,
 }: TabNavigationProps<T>) => {
+  const animationProps = useScrollAnimation();
+
   return (
-    <div className="w-full">
+    <motion.div className="w-full" variants={staggerContainer} {...animationProps}>
       <div className="flex flex-col-reverse justify-between gap-8 lg:flex-row lg:items-center lg:gap-16">
-        <div className="relative -mx-4 px-4 lg:mx-0 lg:max-w-3xl lg:px-0">
+        <motion.div className="relative -mx-4 px-4 lg:mx-0 lg:max-w-3xl lg:px-0" variants={fadeUp}>
           <div className="no-scrollbar flex items-center gap-3 overflow-x-auto pt-2 pb-2 md:gap-4 lg:flex-wrap lg:justify-start">
             {tabs.map((key, index) => {
               const isActive = activeTab === key;
@@ -49,14 +56,14 @@ export const TabNavigation = <T extends string>({
             })}
           </div>
           <div className="from-background pointer-events-none absolute top-2 right-0 bottom-4 w-12 bg-gradient-to-l to-transparent lg:hidden" />
-        </div>
+        </motion.div>
 
-        <div className="lg:text-right">
+        <motion.div className="lg:text-right" variants={fadeUp}>
           <h2 className="text-2xl leading-none font-medium tracking-tighter sm:text-3xl md:text-4xl">
             Explore Our Programs
           </h2>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };

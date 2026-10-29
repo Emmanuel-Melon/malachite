@@ -1,3 +1,8 @@
+"use client";
+
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
+import { motion } from "framer-motion";
+import { fadeUp } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 interface SeparatorProps {
@@ -7,12 +12,16 @@ interface SeparatorProps {
 }
 
 export const Separator = ({ className, label, showDots = true }: SeparatorProps) => {
+  const animationProps = useScrollAnimation();
+
   return (
-    <div
+    <motion.div
       className={cn(
         "relative my-0 hidden w-full items-center justify-center py-0 md:flex",
         className,
       )}
+      variants={fadeUp}
+      {...animationProps}
     >
       <div className="absolute inset-0 flex items-center" aria-hidden="true">
         <div className="border-border/40 w-full border-t" />
@@ -39,6 +48,6 @@ export const Separator = ({ className, label, showDots = true }: SeparatorProps)
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
