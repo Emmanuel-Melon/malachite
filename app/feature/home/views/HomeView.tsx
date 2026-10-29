@@ -53,7 +53,6 @@ export const HomeView = ({
       <Separator />
       <OurPrograms />
       <Separator />
-      <Separator />
       <OurObjectives />
       <Separator />
       <UpcomingEvents events={events} />

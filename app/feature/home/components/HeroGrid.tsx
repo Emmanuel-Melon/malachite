@@ -18,6 +18,7 @@ export const HeroGrid = ({ items }: HeroGridProps) => {
                 className="h-full w-full object-cover transition-all duration-700 group-hover:grayscale-0"
                 fill
                 src={item.src}
+                priority={true}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80" />
               <div className="absolute bottom-6 left-6">

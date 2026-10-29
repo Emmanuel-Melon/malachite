@@ -150,59 +150,57 @@ export const Partners = ({
 
   return (
     <Section>
-      <div className="border-border/50 relative overflow-hidden rounded-[4.5rem] border bg-[#F9F7F4] p-8 md:p-12 lg:p-24">
-        <div className="bg-primary/5 pointer-events-none absolute top-0 right-0 h-[50%] w-[50%] rounded-full blur-[120px]" />
-        <div className="pointer-events-none absolute bottom-0 left-0 h-[40%] w-[40%] rounded-full bg-orange-200/20 blur-[100px]" />
+      <motion.div className="space-y-12" variants={staggerContainer} {...animationProps}>
+        <SectionHeader title={title} gradientText={gradientText} label={label} />
+        <motion.p className="text-muted-foreground text-lg leading-relaxed" variants={fadeUp}>
+          {description}
+        </motion.p>
 
-        <motion.div
-          className="relative z-10 space-y-12"
-          variants={staggerContainer}
-          {...animationProps}
-        >
-          <SectionHeader title={title} gradientText={gradientText} label={label} />
-          <motion.p className="text-muted-foreground text-lg leading-relaxed" variants={fadeUp}>
-            {description}
-          </motion.p>
+        <div className="border-border/50 relative overflow-hidden rounded-[4.5rem] border bg-[#F9F7F4] py-8 md:py-12 lg:py-24">
+          <div className="bg-primary/5 pointer-events-none absolute top-0 right-0 h-[50%] w-[50%] rounded-full blur-[120px]" />
+          <div className="pointer-events-none absolute bottom-0 left-0 h-[40%] w-[40%] rounded-full bg-orange-200/20 blur-[100px]" />
 
-          {grouped && grouped.length > 1 && (
-            <motion.div className="border-border/40 flex gap-1 border-b" variants={fadeUp}>
-              {grouped.map((group) => (
-                <button
-                  key={group.sponsor}
-                  onClick={() => setActiveTab(group.sponsor)}
-                  className={cn(
-                    "relative px-6 py-3 text-sm font-medium tracking-wide transition-colors",
-                    activeTab === group.sponsor
-                      ? "text-foreground"
-                      : "text-muted-foreground hover:text-foreground/70",
-                  )}
-                >
-                  {group.label}
-                  {activeTab === group.sponsor && (
-                    <span className="bg-primary absolute right-0 -bottom-px left-0 h-0.5" />
-                  )}
-                </button>
-              ))}
-            </motion.div>
-          )}
+          <motion.div className="relative z-10 space-y-12" variants={staggerContainer}>
+            {grouped && grouped.length > 1 && (
+              <motion.div className="border-border/40 flex gap-1 border-b" variants={fadeUp}>
+                {grouped.map((group) => (
+                  <button
+                    key={group.sponsor}
+                    onClick={() => setActiveTab(group.sponsor)}
+                    className={cn(
+                      "relative px-6 py-3 text-sm font-medium tracking-wide transition-colors",
+                      activeTab === group.sponsor
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground/70",
+                    )}
+                  >
+                    {group.label}
+                    {activeTab === group.sponsor && (
+                      <span className="bg-primary absolute right-0 -bottom-px left-0 h-0.5" />
+                    )}
+                  </button>
+                ))}
+              </motion.div>
+            )}
 
-          {activeGroup && (
-            <motion.div className="space-y-6" variants={staggerContainer}>
-              {activeGroup.heading && (
-                <motion.div className="space-y-2" variants={fadeUp}>
-                  <h3 className="text-xl font-semibold md:text-2xl">{activeGroup.heading}</h3>
-                  {activeGroup.description && (
-                    <p className="text-muted-foreground text-lg leading-relaxed">
-                      {activeGroup.description}
-                    </p>
-                  )}
-                </motion.div>
-              )}
-              <PartnerGrid items={activeGroup.items} />
-            </motion.div>
-          )}
-        </motion.div>
-      </div>
+            {activeGroup && (
+              <motion.div className="space-y-6" variants={staggerContainer}>
+                {activeGroup.heading && (
+                  <motion.div className="space-y-2" variants={fadeUp}>
+                    <h3 className="text-xl font-semibold md:text-2xl">{activeGroup.heading}</h3>
+                    {activeGroup.description && (
+                      <p className="text-muted-foreground text-lg leading-relaxed">
+                        {activeGroup.description}
+                      </p>
+                    )}
+                  </motion.div>
+                )}
+                <PartnerGrid items={activeGroup.items} />
+              </motion.div>
+            )}
+          </motion.div>
+        </div>
+      </motion.div>
     </Section>
   );
 };

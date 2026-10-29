@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 
 interface MyButtonProps extends ComponentPropsWithoutRef<typeof Button> {
   href?: string;
+  target?: string;
+  rel?: string;
 }
 
 export const MyButton = ({
@@ -33,7 +35,9 @@ export const MyButton = ({
         <a href={href} target={props.target} rel={props.rel}>
           {children}
         </a>
-      ) : children}
+      ) : (
+        children
+      )}
     </Button>
   );
 };
